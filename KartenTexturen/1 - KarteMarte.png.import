@@ -1,9 +1,8 @@
 [remap]
 
 importer="texture"
-type="CompressedTexture2D"
-uid="uid://crilk3p0mnm8e"
-path="res://.godot/imported/1 - KarteMarte.png-f0aa646a8adcab4d52604e98cde25e2f.ctex"
+type="StreamTexture"
+path="res://.import/1 - KarteMarte.png-f0aa646a8adcab4d52604e98cde25e2f.stex"
 metadata={
 "vram_texture": false
 }
@@ -11,23 +10,26 @@ metadata={
 [deps]
 
 source_file="res://KartenTexturen/1 - KarteMarte.png"
-dest_files=["res://.godot/imported/1 - KarteMarte.png-f0aa646a8adcab4d52604e98cde25e2f.ctex"]
+dest_files=[ "res://.import/1 - KarteMarte.png-f0aa646a8adcab4d52604e98cde25e2f.stex" ]
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
-compress/hdr_compression=1
+compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-compress/channel_pack=0
-mipmaps/generate=false
-mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
 process/normal_map_invert_y=false
-process/hdr_as_srgb=false
-process/size_limit=0
-detect_3d/compress_to=1
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
