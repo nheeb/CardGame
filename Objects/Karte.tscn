@@ -5,7 +5,7 @@
 [ext_resource path="res://Objects/Karte.gd" type="Script" id=3]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.0285357, 0.001, 0.043088 )
+extents = Vector3( 0.0307154, 0.001, 0.043088 )
 
 [node name="Karte" type="Spatial"]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )
@@ -14,6 +14,7 @@ script = ExtResource( 3 )
 [node name="KartModel" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 script = ExtResource( 2 )
+card_type = 1
 
 [node name="Area" type="Area" parent="."]
 

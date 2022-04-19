@@ -27,7 +27,7 @@ func list_files_in_directory(path):
 func get_texture_path_by_number(number: int) -> String:
 	var all_files = list_files_in_directory("res://KartenTexturen/")
 	for filename in all_files:
-		if filename.begins_with(str(number) + " -"):
+		if filename.begins_with(str(number)):
 			return "res://KartenTexturen/" + filename
 	return "ERROR"
 

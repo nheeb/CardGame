@@ -9,3 +9,9 @@ transform = Transform( 1, 0, 0, 0, 0.529194, 0.848501, 0, -0.848501, 0.529194, -
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.285995, -0.641087 )
 
 [node name="Karte" parent="Pivot" instance=ExtResource( 1 )]
+
+[node name="Karte2" parent="Pivot" instance=ExtResource( 1 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0.264467, 0, 0 )
+
+[node name="Karte3" parent="Pivot" instance=ExtResource( 1 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -0.264817, 0, 0 )

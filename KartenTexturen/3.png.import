@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/0 - Karte.png-4dde71116dc91f738ae4908f0aa248dc.s3tc.stex"
-path.etc2="res://.import/0 - Karte.png-4dde71116dc91f738ae4908f0aa248dc.etc2.stex"
+path.s3tc="res://.import/3.png-9dbf789e6a27e04eea3f2d58a7f8832c.s3tc.stex"
+path.etc2="res://.import/3.png-9dbf789e6a27e04eea3f2d58a7f8832c.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://KartenTexturen/0 - Karte.png"
-dest_files=[ "res://.import/0 - Karte.png-4dde71116dc91f738ae4908f0aa248dc.s3tc.stex", "res://.import/0 - Karte.png-4dde71116dc91f738ae4908f0aa248dc.etc2.stex" ]
+source_file="res://KartenTexturen/3.png"
+dest_files=[ "res://.import/3.png-9dbf789e6a27e04eea3f2d58a7f8832c.s3tc.stex", "res://.import/3.png-9dbf789e6a27e04eea3f2d58a7f8832c.etc2.stex" ]
 
 [params]
 
