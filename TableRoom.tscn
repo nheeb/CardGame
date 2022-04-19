@@ -22,6 +22,7 @@ omni_range = 2.92129
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.24325 )
 
 [node name="MouseLayer" type="Area" parent="."]
+input_capture_on_drag = true
 
 [node name="CollisionShape" type="CollisionShape" parent="MouseLayer"]
 shape = SubResource( 1 )
@@ -30,6 +31,6 @@ shape = SubResource( 1 )
 transform = Transform( 0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0.464, 0 )
+transform = Transform( 1, 0, 0, 0, 0.637706, 0.77028, 0, -0.77028, 0.637706, 0, 1.40279, 0.614336 )
 
 [connection signal="input_event" from="MouseLayer" to="." method="_on_MouseLayer_input_event"]
