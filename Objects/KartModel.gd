@@ -37,9 +37,9 @@ func get_texture_by_number(number: int):
 		return null
 	return load(path)
 
-func _ready():
-	var number :int=  get_parent().karten_stapel[0]
-	set_texture_by_number(number)
+#func _ready():
+#	var number :int=  get_parent().karten_stapel[0]
+#	set_texture_by_number(number)
 	
 func set_texture_by_number(number: int):
 	var texture = get_texture_by_number(number)

@@ -21,8 +21,12 @@ _global_script_class_icons={
 [application]
 
 config/name="TCG"
-run/main_scene="res://TableRoom.tscn"
+run/main_scene="res://Levels/World.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GameInfo="*res://Singleton/GameInfo.tscn"
 
 [display]
 
