@@ -7,11 +7,14 @@ func _physics_process(delta):
 		var new_card = CARD.instance()
 		get_tree().current_scene.add_child(new_card)
 		new_card.translation = mouse_position
+		
+		
 #		new_card.translation.y = .726
 #		new_card.translation.x = rand_range(-.5,.5)
 #		new_card.translation.z = rand_range(-.5,.5)
 
 var mouse_position := Vector3.ZERO
+var karten_stapel := [0,1]
 
 func _on_MouseLayer_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseMotion:
