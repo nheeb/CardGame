@@ -29,7 +29,8 @@ func drag():
 	global_transform.origin = lerp(global_transform.origin, GameInfo.mouse_position, .25)
 
 func follow_hand_pivot():
-	translation = lerp(translation, hand_pivot.origin, .25)
+	translation = lerp(translation, hand_pivot.origin, .15)
+	transform.basis = transform.basis.slerp(hand_pivot.basis, .15)
 
 func _physics_process(delta):
 	if dragMode:
@@ -93,3 +94,14 @@ func set_script_by_number(number: int):
 	if script == null:
 		return
 	set_script(script)
+
+
+func _on_Area_mouse_entered():
+	GameInfo.main_cam.hover_card = self
+	GameInfo.main_cam.generate_pivots()
+
+
+func _on_Area_mouse_exited():
+	if GameInfo.main_cam.hover_card == self:
+		GameInfo.main_cam.hover_card = null
+		GameInfo.main_cam.generate_pivots()

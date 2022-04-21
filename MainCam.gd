@@ -3,6 +3,8 @@ extends Camera
 class_name MainCam
 
 export var pivot_distance := .2
+export var hover_push := .05
+export var hover_scale := 1.3
 
 var cards := []
 
@@ -18,14 +20,31 @@ func generate_pivots():
 	var hover_index := 0
 	
 	var count := cards.size()
+	
 	if drag_card != null:
 		count -= 1
 		drag_index = cards.find(drag_card)
+	if hover_card != null:
+		hover_index = cards.find(hover_card)
+		
 	for i in range(count):
-		var x_pos = i * pivot_distance - ((count - 1) * pivot_distance * .5)
+		
+		var x_pos : float = i * pivot_distance - ((count - 1) * pivot_distance * .5)
+		var scale := 1.0
+		
+		if hover_card != null:
+			if i < hover_index:
+				x_pos -= hover_push
+			if i > hover_index:
+				x_pos += hover_push
+			if i == hover_index:
+				scale *= hover_scale
+				
 		if drag_card != null and i >= drag_index:
 			i += 1
+			
 		(cards[i] as Karte).hand_pivot.origin.x = x_pos
+		(cards[i] as Karte).hand_pivot.basis = Basis.IDENTITY.scaled(Vector3.ONE * scale)
 
 const KARTE = preload("res://Objects/Karte.tscn")
 

@@ -14,8 +14,10 @@ mouse_filter = 2
 script = ExtResource( 2 )
 
 [node name="WoodLabel" type="RichTextLabel" parent="."]
-margin_right = 458.0
-margin_bottom = 171.0
+margin_left = 24.0
+margin_top = 30.0
+margin_right = 482.0
+margin_bottom = 201.0
 mouse_filter = 1
 custom_fonts/normal_font = SubResource( 1 )
 text = "Wood: 0"
