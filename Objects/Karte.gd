@@ -5,7 +5,7 @@ var card_type := 0
 
 func _ready():
 	if card_type == 0:
-		change_type(randi() % 4 + 1)
+		change_type(randi() % 5 + 1)
 
 func _on_Area_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton:

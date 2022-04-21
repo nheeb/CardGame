@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Objects/Tree.gd" type="Script" id=1]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.0666667, 0.87451, 0.211765, 1 )
@@ -12,6 +14,7 @@ albedo_color = Color( 0.443137, 0.407843, 0.0705882, 1 )
 [sub_resource type="CylinderMesh" id=4]
 
 [node name="Tree" type="Spatial"]
+script = ExtResource( 1 )
 
 [node name="Placeholder2" type="MeshInstance" parent="."]
 transform = Transform( 0.362934, 0, 0, 0, -1.77438e-08, -0.405931, 0, 0.362934, -1.58643e-08, 0, 1.40522, 0 )
