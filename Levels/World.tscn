@@ -30,7 +30,7 @@ shape = SubResource( 3 )
 [node name="Camera" parent="." instance=ExtResource( 2 )]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.988993, -0.0237435, 0.146047, -0.145202, -0.345595, 0.927082, 0.0284611, -0.938083, -0.345239, 0, 4.39028, -0.842316 )
+transform = Transform( 0.988993, -0.0237436, 0.146048, -0.145202, -0.345595, 0.927082, 0.0284611, -0.938083, -0.345239, 0, 4.39028, -0.842316 )
 shadow_enabled = true
 shadow_bias = 0.056
 
