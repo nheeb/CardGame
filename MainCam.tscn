@@ -15,3 +15,9 @@ transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0.264467, 0, 0 )
 
 [node name="Karte3" parent="Pivot" instance=ExtResource( 1 )]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -0.264817, 0, 0 )
+
+[node name="Karte4" parent="Pivot" instance=ExtResource( 1 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -0.526456, 0, 0 )
+
+[node name="Karte5" parent="Pivot" instance=ExtResource( 1 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0.531674, 0, 0 )
