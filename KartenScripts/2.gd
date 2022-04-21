@@ -9,4 +9,5 @@ func play_effect():
 	var new_baum = TREE.instance()
 	get_tree().current_scene.add_child(new_baum)
 	new_baum.translation = GameInfo.mouse_position
+	new_baum.translation.y = 0
 	queue_free()

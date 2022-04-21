@@ -5,16 +5,13 @@ var card_type := 0
 
 func _ready():
 	if card_type == 0:
-		change_type(randi() % 5 + 1)
+		change_type([2, 5][randi()%2])
 
 func _on_Area_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton:
 		dragMode = event.pressed
 		if event.pressed == false:
-			if is_play_valid():
-				play_effect()
-			else:
-				return_to_hand()
+			play_action_input()
 
 var dragMode = false
 
@@ -22,6 +19,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed == false:
 			dragMode = false
+			#play_action_input()
 
 func drag():
 	#global_transform.origin = GameInfo.mouse_position
@@ -31,8 +29,14 @@ func _physics_process(delta):
 	if dragMode:
 		drag()
 
+func play_action_input():
+	if is_play_valid():
+		play_effect()
+	else:
+		return_to_hand()
+
 func is_play_valid() -> bool: #Override
-	return false
+	return true
 
 func play_effect(): #Override
 	pass
