@@ -3,7 +3,7 @@ extends Spatial
 const LJ = preload("res://Units/Lumberjack.tscn")
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("create_new_card"):
+	if false:#Input.is_action_just_pressed("create_new_card"):
 		var new_obj = LJ.instance()
 		get_tree().current_scene.add_child(new_obj)
 		new_obj.translation = GameInfo.mouse_position
@@ -16,3 +16,4 @@ func _physics_process(delta):
 
 func _ready():
 	GameInfo.ui = $UI
+	GameInfo.main_cam = $Camera

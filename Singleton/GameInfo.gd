@@ -9,6 +9,7 @@ var treeListe := []
 var holz_count : int = 0 setget set_holz
 var holz_amount : int = 10
 var ui : UI
+var main_cam : MainCam
 
 func set_holz(number):
 	holz_count = number 

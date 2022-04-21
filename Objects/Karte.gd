@@ -9,29 +9,39 @@ func _ready():
 
 func _on_Area_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton:
-		dragMode = event.pressed
-		if event.pressed == false:
-			play_action_input()
+		if event.pressed:
+			dragMode = true
+			GameInfo.main_cam.drag_card = self
+			GameInfo.main_cam.generate_pivots()
 
 var dragMode = false
+var hand_pivot := Transform()
 
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed == false:
-			dragMode = false
-			#play_action_input()
+			if dragMode:
+				dragMode = false
+				GameInfo.main_cam.drag_card = null
+				play_action_input()
 
 func drag():
-	#global_transform.origin = GameInfo.mouse_position
-	global_transform.origin = lerp(global_transform.origin, GameInfo.mouse_position, .5)
+	global_transform.origin = lerp(global_transform.origin, GameInfo.mouse_position, .25)
+
+func follow_hand_pivot():
+	translation = lerp(translation, hand_pivot.origin, .25)
 
 func _physics_process(delta):
 	if dragMode:
 		drag()
+	else:
+		follow_hand_pivot()
 
 func play_action_input():
 	if is_play_valid():
+		GameInfo.main_cam.remove_from_hand(self)
 		play_effect()
+		queue_free()
 	else:
 		return_to_hand()
 
@@ -42,7 +52,7 @@ func play_effect(): #Override
 	pass
 
 func return_to_hand():
-	pass
+	GameInfo.main_cam.generate_pivots()
 
 func change_type(card_type: int):
 	$KartModel.card_type = card_type

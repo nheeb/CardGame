@@ -10,4 +10,3 @@ func play_effect():
 	get_tree().current_scene.add_child(new_lj)
 	new_lj.translation = GameInfo.mouse_position
 	new_lj.translation.y = 0
-	queue_free()

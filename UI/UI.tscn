@@ -18,4 +18,4 @@ margin_right = 458.0
 margin_bottom = 171.0
 mouse_filter = 1
 custom_fonts/normal_font = SubResource( 1 )
-text = "Wood: "
+text = "Wood: 0"
