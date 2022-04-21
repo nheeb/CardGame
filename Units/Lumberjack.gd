@@ -13,7 +13,7 @@ func _physics_process(delta):
 		if not is_instance_valid(target): 
 			seek_tree()
 			return
-		if distance_to_tree(target)>= stop_radius:
+		if distance_to_tree(target) >= stop_radius:
 			self.global_transform.origin += delta * v * self.global_transform.origin.direction_to(target.global_transform.origin) 
 		else:
 			chop(target)
@@ -21,6 +21,7 @@ func _physics_process(delta):
 			
 func chop(tree):
 	yield(get_tree().create_timer(5),"timeout")
+	GameInfo.holz_count += GameInfo.holz_amount
 	if is_instance_valid(tree):
 		tree.queue_free()
 	seek_tree()

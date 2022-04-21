@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Karte",
 "language": "GDScript",
 "path": "res://Objects/Karte.gd"
+}, {
+"base": "Control",
+"class": "UI",
+"language": "GDScript",
+"path": "res://UI/UI.gd"
 } ]
 _global_script_class_icons={
-"Karte": ""
+"Karte": "",
+"UI": ""
 }
 
 [application]
