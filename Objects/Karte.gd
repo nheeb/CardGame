@@ -11,7 +11,10 @@ func _on_Area_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton:
 		dragMode = event.pressed
 		if event.pressed == false:
-			play_effect()
+			if is_play_valid():
+				play_effect()
+			else:
+				return_to_hand()
 
 var dragMode = false
 
@@ -21,13 +24,20 @@ func _input(event):
 			dragMode = false
 
 func drag():
-	global_transform.origin = GameInfo.mouse_position
+	#global_transform.origin = GameInfo.mouse_position
+	global_transform.origin = lerp(global_transform.origin, GameInfo.mouse_position, .5)
 
 func _physics_process(delta):
 	if dragMode:
 		drag()
 
-func play_effect():
+func is_play_valid() -> bool: #Override
+	return false
+
+func play_effect(): #Override
+	pass
+
+func return_to_hand():
 	pass
 
 func change_type(card_type: int):
