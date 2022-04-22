@@ -4,6 +4,7 @@
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_local_to_scene = true
+flags_unshaded = true
 
 [node name="KartModel" instance=ExtResource( 1 )]
 

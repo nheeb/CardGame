@@ -30,7 +30,9 @@ func drag():
 
 func follow_hand_pivot():
 	translation = lerp(translation, hand_pivot.origin, .15)
-	transform.basis = transform.basis.slerp(hand_pivot.basis, .15)
+	transform.basis.x = lerp(transform.basis.x, hand_pivot.basis.x, .15)#.slerp(hand_pivot.basis, .15)
+	transform.basis.y = lerp(transform.basis.y, hand_pivot.basis.y, .15)
+	transform.basis.z = lerp(transform.basis.z, hand_pivot.basis.z, .15)
 
 func _physics_process(delta):
 	if dragMode:
@@ -55,9 +57,9 @@ func play_effect(): #Override
 func return_to_hand():
 	GameInfo.main_cam.generate_pivots()
 
-func change_type(card_type: int):
-	$KartModel.card_type = card_type
-	set_script_by_number(card_type)
+func change_type(_card_type: int):
+	$KartModel.card_type = _card_type
+	set_script_by_number(_card_type)
 
 func list_files_in_directory(path):
 	var files = []
