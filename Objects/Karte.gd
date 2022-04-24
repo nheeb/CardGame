@@ -40,6 +40,9 @@ func _physics_process(delta):
 		follow_hand_pivot()
 
 func play_action_input():
+	if GameInfo.is_mouse_on_hand():
+		return_to_hand()
+		return
 	if is_play_valid():
 		GameInfo.main_cam.remove_from_hand(self)
 		play_effect()

@@ -1,6 +1,10 @@
 extends Spatial
 
 var mouse_position : Vector3
+func is_mouse_on_hand():
+	print(get_viewport().get_mouse_position())
+	return get_viewport().get_mouse_position()[1] > 730
+
 func _ready():
 	randomize()
 
