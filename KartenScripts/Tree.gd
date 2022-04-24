@@ -1,8 +1,6 @@
 extends Karte
-const TREE = preload("res://Objects/Tree.tscn")
 
-func _init():
-	card_type = 2
+const TREE = preload("res://Objects/Tree.tscn")
 
 func play_effect():
 	#print("Confederacy")

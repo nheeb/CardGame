@@ -1,13 +1,12 @@
-tool
 extends Spatial
 
-export var card_type : int = 0 setget set_card_type
+export var card_name := "" setget set_card_name
 
-func set_card_type(ct):
-	card_type = ct
-	set_texture_by_number(ct)
+func set_card_name(cn):
+	card_name = cn
+	set_texture_by_name(cn)
 
-func list_files_in_directory(path):
+func list_files_in_directory(path: String) -> Array:
 	var files = []
 	var dir = Directory.new()
 	dir.open(path)
@@ -24,25 +23,16 @@ func list_files_in_directory(path):
 
 	return files
 
-func get_texture_path_by_number(number: int) -> String:
+func get_texture_path_by_name(name: String) -> String:
 	var all_files = list_files_in_directory("res://KartenTexturen/")
 	for filename in all_files:
-		if filename.begins_with(str(number)):
+		if filename == name + ".png":
 			return "res://KartenTexturen/" + filename
 	return "ERROR"
 
-func get_texture_by_number(number: int):
-	var path = get_texture_path_by_number(number)
+func set_texture_by_name(name: String) -> void:
+	var path = get_texture_path_by_name(name)
 	if path == "ERROR":
-		return null
-	return load(path)
-
-#func _ready():
-#	var number :int=  get_parent().karten_stapel[0]
-#	set_texture_by_number(number)
-	
-func set_texture_by_number(number: int):
-	var texture = get_texture_by_number(number)
-	if texture == null:
 		return
+	var texture = load(path)
 	$"card size".get("material/0").albedo_texture = texture

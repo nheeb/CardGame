@@ -1,11 +1,10 @@
 extends Spatial
 class_name Karte
 
-var card_type := 0
+var card_name := ""
 
-func _ready():
-	if card_type == 0:
-		change_type([2, 5][randi()%2])
+func _init():
+	card_name = str(get_script().get_path()).split("/")[-1].split(".gd")[0]
 
 func _on_Area_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton:
@@ -30,7 +29,7 @@ func drag():
 
 func follow_hand_pivot():
 	translation = lerp(translation, hand_pivot.origin, .15)
-	transform.basis.x = lerp(transform.basis.x, hand_pivot.basis.x, .15)#.slerp(hand_pivot.basis, .15)
+	transform.basis.x = lerp(transform.basis.x, hand_pivot.basis.x, .15)
 	transform.basis.y = lerp(transform.basis.y, hand_pivot.basis.y, .15)
 	transform.basis.z = lerp(transform.basis.z, hand_pivot.basis.z, .15)
 
@@ -57,11 +56,11 @@ func play_effect(): #Override
 func return_to_hand():
 	GameInfo.main_cam.generate_pivots()
 
-func change_type(_card_type: int):
-	$KartModel.card_type = _card_type
-	set_script_by_number(_card_type)
+func change_type(_card_name: String):
+	$KartModel.card_name = _card_name
+	set_script_by_name(_card_name)
 
-func list_files_in_directory(path):
+func list_files_in_directory(path: String) -> Array:
 	var files = []
 	var dir = Directory.new()
 	dir.open(path)
@@ -78,25 +77,20 @@ func list_files_in_directory(path):
 
 	return files
 
-func get_script_path_by_number(number: int) -> String:
+func get_script_path_by_name(name: String) -> String:
 	var all_files = list_files_in_directory("res://KartenScripts/")
 	for filename in all_files:
-		if filename.begins_with(str(number)):
+		if filename == name + ".gd":
 			return "res://KartenScripts/" + filename
 	return "ERROR"
 
-func get_script_by_number(number: int):
-	var path = get_script_path_by_number(number)
+func set_script_by_name(name: String) -> void:
+	var path = get_script_path_by_name(name)
 	if path == "ERROR":
-		return null
-	return load(path)
-
-func set_script_by_number(number: int):
-	var script = get_script_by_number(number)
-	if script == null:
+		printerr("Wrong Name to load Card Script")
 		return
+	var script = load(path)
 	set_script(script)
-
 
 func _on_Area_mouse_entered():
 	GameInfo.main_cam.hover_card = self

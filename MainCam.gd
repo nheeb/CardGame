@@ -59,7 +59,7 @@ func draw_card():
 	var card := KARTE.instance() as Karte
 	$Pivot.add_child(card)
 	card.translation = Vector3(0,0,2)
-	card.change_type([2, 5][randi()%2])
+	card.change_type(GameInfo.get_random_card_name_from_pool())
 	cards.append(card)
 	generate_pivots()
 
