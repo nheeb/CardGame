@@ -17,5 +17,5 @@ func _ready():
 func _on_Timer_timeout():
 	var new_enemy = Enemy.instance()
 	get_tree().current_scene.add_child(new_enemy)
-	new_enemy.translation = Vector3(1,0,1)
+	new_enemy.translation = Vector3(3-6* randf(),0,3-6* randf())
 	#new_enemy.translation.y = 0
