@@ -9,6 +9,8 @@ func _ready():
 	randomize()
 
 var treeListe := []
+var enemyListe := []
+var unitListe := []
 
 var holz_count : int = 0 setget set_holz
 var holz_amount : int = 10

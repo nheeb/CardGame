@@ -1,13 +1,8 @@
 extends Spatial
 
-const LJ = preload("res://Units/Lumberjack.tscn")
+const Enemy = preload("res://Units/FighterEnemy.tscn")
 
 func _physics_process(delta):
-	if false:#Input.is_action_just_pressed("create_new_card"):
-		var new_obj = LJ.instance()
-		get_tree().current_scene.add_child(new_obj)
-		new_obj.translation = GameInfo.mouse_position
-		new_obj.translation.y = 0
 	var camera = $Camera
 	var from = camera.project_ray_origin(get_viewport().get_mouse_position())
 	var to = camera.project_ray_normal(get_viewport().get_mouse_position())
@@ -17,3 +12,10 @@ func _physics_process(delta):
 func _ready():
 	GameInfo.ui = $UI
 	GameInfo.main_cam = $Camera
+
+
+func _on_Timer_timeout():
+	var new_enemy = Enemy.instance()
+	get_tree().current_scene.add_child(new_enemy)
+	new_enemy.translation = Vector3(1,0,1)
+	#new_enemy.translation.y = 0
