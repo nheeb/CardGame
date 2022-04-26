@@ -1,0 +1,9 @@
+extends Node
+
+const LUMBERJACK = preload("res://Units/Fighter.tscn")
+
+func play_effect():
+	var new_fighter = LUMBERJACK.instance()
+	get_tree().current_scene.add_child(new_fighter)
+	new_fighter.translation = GameInfo.mouse_position
+	new_fighter.translation.y = 0
