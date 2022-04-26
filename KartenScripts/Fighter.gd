@@ -1,4 +1,4 @@
-extends Node
+extends Karte
 
 const LUMBERJACK = preload("res://Units/Fighter.tscn")
 
