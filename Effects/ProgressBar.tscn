@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Shader/ProgressBar.tres" type="Shader" id=1]
+[ext_resource path="res://Effects/ProgressBar.gd" type="Script" id=2]
+
+[sub_resource type="QuadMesh" id=4]
+size = Vector2( 1.6, 0.2 )
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 1 )
+shader_param/albedo = Color( 1, 0, 0, 1 )
+shader_param/albedo_bg = Color( 0, 0, 0, 1 )
+shader_param/progress = 0.0
+
+[node name="ProgressBar" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31308, 0 )
+script = ExtResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+cast_shadow = 0
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
