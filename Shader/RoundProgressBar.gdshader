@@ -5,9 +5,9 @@ uniform sampler2D texture_albedo : hint_albedo;
 uniform float border : hint_range(0, .5);
 uniform float completeness : hint_range(0, 1);
 
-float scp(float v, float imin, float imax, float omin, float omax, float p) {
+float scp(float v, float imin, float imax, float omin, float omax) {
 	float idist = imax - imin;
-	return pow(mix(omin, omax, (clamp(v, imin, imax) - imin ) / idist), p);
+	return mix(omin, omax, (clamp(v, imin, imax) - imin ) / idist);
 }
 
 void fragment() {
@@ -19,8 +19,8 @@ void fragment() {
 	vec2 uvc = UV - vec2(.5);
 	float angle = (float(uvc.y<0.0)*(pi + acos(uvc.x / length(uvc))) + float(uvc.y>=0.0)*(acos(-uvc.x / length(uvc))) ) / (2.0 * pi);
 	//float alpha_from_angle = float(angle > (1.0 - completeness));
-	float stretched_completeness = scp(completeness, .0, 1., -0.05, 1., 1.);
-	float alpha_from_angle = scp(angle - stretched_completeness, .0, .05, 1.0, 0.0, 1);
+	float stretched_completeness = scp(completeness, .0, 1., -0.05, 1.);
+	float alpha_from_angle = scp(angle - stretched_completeness, .0, .05, 1.0, 0.0);
 	float pre_ALPHA = float(length(uvc) < .5) * float(length(uvc) > .5 - border) * alpha_from_angle;
 	ALPHA = float(pre_ALPHA > .05) * pre_ALPHA;
 }
