@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Units/FighterEnemy.gd" type="Script" id=1]
+[ext_resource path="res://Effects/ProgressBar.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -22,3 +23,6 @@ material/0 = SubResource( 2 )
 transform = Transform( 0.0477895, 0.375424, 0, -0.0747551, 0.240001, 0, 0, 0, 0.0497338, 0.0992057, 0.516777, 0.202497 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 3 )
+
+[node name="ProgressBar" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35778, 0 )
