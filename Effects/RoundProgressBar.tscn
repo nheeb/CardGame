@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Shader/RoundProgressBar.gdshader" type="Shader" id=1]
+[ext_resource path="res://MaterialShader/RoundProgressBar.gdshader" type="Shader" id=1]
 
 [sub_resource type="GDScript" id=3]
 script/source = "extends Spatial
