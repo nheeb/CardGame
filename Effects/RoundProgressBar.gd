@@ -1,3 +1,4 @@
+tool
 extends Spatial
 
 export var progress := 0.0 setget set_progress
