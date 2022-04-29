@@ -39,7 +39,7 @@ func chop(tree):
 	
 	var new_prcl = ParticleExplosion.instance()
 	get_tree().current_scene.add_child(new_prcl)
-	new_prcl.scale = 0.2 * Vector3.ONE
+	new_prcl.scale = 0.10 * Vector3.ONE
 	new_prcl.translation = tree.global_transform.origin
 	
 	if is_instance_valid(tree):
