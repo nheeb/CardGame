@@ -3,6 +3,7 @@ extends Spatial
 var target : Spatial
 var v :float= 1
 var stop_radius :float= 0.5
+var duration :float= 5
 
 func _ready():
 	yield(get_tree(),"idle_frame")
@@ -18,10 +19,29 @@ func _physics_process(delta):
 		else:
 			chop(target)
 			target = null
+
+const RoundProgressBar = preload("res://Effects/RoundProgressBar.tscn")
+const ParticleExplosion = preload("res://Effects/ParticleExplosion.tscn")
 			
 func chop(tree):
-	yield(get_tree().create_timer(5),"timeout")
+	var new_rpb = RoundProgressBar.instance()
+	tree.add_child(new_rpb)
+	new_rpb.translation = Vector3(0,0.2,0)
+	new_rpb.scale = Vector3(0.5,0.5,0.5)
+	
+	$ProgressTween.interpolate_property(new_rpb, "progress", 0, 1, duration)
+	$ProgressTween.start()
+	
+	#yield(get_tree().create_timer(duration),"timeout") #yield bedeutet, dass er auf ein bistimmtes signal warten soll
+	yield($ProgressTween, "tween_all_completed")
+	
 	GameInfo.holz_count += GameInfo.holz_amount
+	
+	var new_prcl = ParticleExplosion.instance()
+	get_tree().current_scene.add_child(new_prcl)
+	new_prcl.scale = 0.2 * Vector3.ONE
+	new_prcl.translation = tree.global_transform.origin
+	
 	if is_instance_valid(tree):
 		tree.queue_free()
 	seek_tree()

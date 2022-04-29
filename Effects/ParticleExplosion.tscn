@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+spread = 180.0
+initial_velocity = 10.0
+initial_velocity_random = 0.29
+scale = 4.0
+scale_random = 1.0
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[node name="ParticleExplosion" type="Spatial"]
+
+[node name="Particles" type="Particles" parent="."]
+emitting = false
+amount = 50
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB( -17.4917, -37.023, -17.0663, 32.4543, 41.677, 35.2878 )
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 2 )

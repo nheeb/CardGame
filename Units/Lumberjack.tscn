@@ -24,3 +24,5 @@ material/0 = SubResource( 3 )
 transform = Transform( 1.67127, 0, 0, 0, 0.13688, 0, 0, 0, 1, 0, 0.644675, 0.684591 )
 mesh = SubResource( 2 )
 material/0 = SubResource( 4 )
+
+[node name="ProgressTween" type="Tween" parent="."]
