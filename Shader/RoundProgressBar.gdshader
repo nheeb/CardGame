@@ -21,5 +21,6 @@ void fragment() {
 	//float alpha_from_angle = float(angle > (1.0 - completeness));
 	float stretched_completeness = scp(completeness, .0, 1., -0.05, 1., 1.);
 	float alpha_from_angle = scp(angle - stretched_completeness, .0, .05, 1.0, 0.0, 1);
-	ALPHA = float(length(uvc) < .5) * float(length(uvc) > .5 - border) * alpha_from_angle;
+	float pre_ALPHA = float(length(uvc) < .5) * float(length(uvc) > .5 - border) * alpha_from_angle;
+	ALPHA = float(pre_ALPHA > .05) * pre_ALPHA;
 }

@@ -15,7 +15,6 @@ shader_param/progress = 0.0
 [node name="ProgressBar" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31308, 0 )
 script = ExtResource( 2 )
-progress = 0.335
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 cast_shadow = 0
