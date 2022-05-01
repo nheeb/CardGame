@@ -25,7 +25,7 @@ func _input(event):
 				play_action_input()
 
 func drag():
-	global_transform.origin = lerp(global_transform.origin, GameInfo.mouse_position, .25)
+	global_transform.origin = lerp(global_transform.origin, GameInfo.get_mouse_pos("hand" if GameInfo.is_mouse_on_hand() else "ground"), .25)
 
 func follow_hand_pivot():
 	translation = lerp(translation, hand_pivot.origin, .15)

@@ -1,9 +1,17 @@
 extends Spatial
 
-var mouse_position : Vector3
+#var mouse_position : Vector3
 func is_mouse_on_hand():
-	print(get_viewport().get_mouse_position())
+	#print(get_viewport().get_mouse_position())
 	return get_viewport().get_mouse_position()[1] > 730
+
+var mouse_layers := {}
+func get_mouse_layer(layer_name: String) -> MouseDetectionLayer:
+	return mouse_layers[layer_name]
+
+func get_mouse_pos(layer_name: String) -> Vector3:
+	return get_mouse_layer(layer_name).get_global_layer_mouse_position()
+
 
 func _ready():
 	randomize()

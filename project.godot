@@ -17,7 +17,12 @@ _global_script_classes=[ {
 "base": "Camera",
 "class": "MainCam",
 "language": "GDScript",
-"path": "res://MainCam.gd"
+"path": "res://Utility/MainCam.gd"
+}, {
+"base": "Spatial",
+"class": "MouseDetectionLayer",
+"language": "GDScript",
+"path": "res://Utility/MouseDetectionLayer.gd"
 }, {
 "base": "Control",
 "class": "UI",
@@ -27,6 +32,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Karte": "",
 "MainCam": "",
+"MouseDetectionLayer": "",
 "UI": ""
 }
 
@@ -80,9 +86,10 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-quality/directional_shadow/size=8192
-quality/directional_shadow/size.mobile=4096
-quality/shadow_atlas/size=8192
-quality/shadow_atlas/size.mobile=4096
+quality/directional_shadow/size=16384
+quality/directional_shadow/size.mobile=16384
+quality/shadow_atlas/size=16384
+quality/shadow_atlas/size.mobile=16384
 quality/shadow_atlas/cubemap_size=2048
+quality/shadows/filter_mode=2
 environment/default_environment="res://default_env.tres"
