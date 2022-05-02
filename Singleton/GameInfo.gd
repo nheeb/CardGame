@@ -3,7 +3,7 @@ extends Spatial
 #var mouse_position : Vector3
 func is_mouse_on_hand():
 	#print(get_viewport().get_mouse_position())
-	return get_viewport().get_mouse_position()[1] > 730
+	return get_viewport().get_mouse_position()[1] > get_viewport().size.y * .69
 
 var mouse_layers := {}
 func get_mouse_layer(layer_name: String) -> MouseDetectionLayer:

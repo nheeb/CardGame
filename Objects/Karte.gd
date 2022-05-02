@@ -36,6 +36,8 @@ func follow_hand_pivot():
 func _physics_process(delta):
 	if dragMode:
 		drag()
+		if not GameInfo.is_mouse_on_hand():
+			on_ground_hover(GameInfo.get_mouse_pos("ground"))
 	else:
 		follow_hand_pivot()
 
@@ -50,10 +52,13 @@ func play_action_input():
 	else:
 		return_to_hand()
 
-func is_play_valid() -> bool: #Override
+func is_play_valid() -> bool: # Override
 	return true
 
-func play_effect(): #Override
+func play_effect(): # Override
+	pass
+
+func on_ground_hover(position: Vector3): # Override
 	pass
 
 func return_to_hand():
