@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Units/FighterEnemy.gd" type="Script" id=1]
 [ext_resource path="res://Effects/ProgressBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Utility/AddToList.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -26,3 +27,6 @@ material/0 = SubResource( 3 )
 
 [node name="ProgressBar" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35778, 0 )
+
+[node name="AddToList" parent="." instance=ExtResource( 3 )]
+list_name = "enemies"

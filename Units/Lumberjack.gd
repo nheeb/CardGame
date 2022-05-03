@@ -47,11 +47,11 @@ func chop(tree):
 	seek_tree()
 
 func seek_tree():
-	if GameInfo.treeListe.empty(): 
+	if GameInfo.objectDictionary["trees"].empty(): 
 		self.queue_free()
 		return
-	GameInfo.treeListe.sort_custom(self, "tree_cmpr")
-	start_move_to_tree(GameInfo.treeListe[0])
+	GameInfo.objectDictionary["trees"].sort_custom(self, "tree_cmpr")
+	start_move_to_tree(GameInfo.objectDictionary["trees"][0])
 
 func tree_cmpr(tree1, tree2):
 	return distance_to_tree(tree1) <= distance_to_tree(tree2)
@@ -60,7 +60,7 @@ func distance_to_tree(tree):
 	return tree.global_transform.origin.distance_to(self.global_transform.origin)
 
 func start_move_to_tree(tree):
-	GameInfo.treeListe.erase(tree)
+	GameInfo.objectDictionary["trees"].erase(tree)
 	target = tree
 	var dir :Vector3= self.global_transform.origin.direction_to(target.global_transform.origin)
 	dir.y = 0

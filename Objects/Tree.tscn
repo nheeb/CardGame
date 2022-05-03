@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Objects/Tree.gd" type="Script" id=1]
+[ext_resource path="res://Utility/AddToList.tscn" type="PackedScene" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.0666667, 0.87451, 0.211765, 1 )
@@ -27,5 +28,8 @@ transform = Transform( 0.0471622, 0, 0, 0, 0.67283, 0, 0, 0, 0.0471622, 0, 0.667
 material_override = SubResource( 3 )
 mesh = SubResource( 4 )
 material/0 = null
+
+[node name="AddToList" parent="." instance=ExtResource( 2 )]
+list_name = "trees"
 
 [connection signal="tree_exiting" from="." to="." method="_on_Tree_tree_exiting"]

@@ -16,9 +16,10 @@ func get_mouse_pos(layer_name: String) -> Vector3:
 func _ready():
 	randomize()
 
-var treeListe := []
-var enemyListe := []
-var unitListe := []
+var objectDictionary := {}
+#objectDictionary["trees"] = [tree1 , tree2 ,tree3]
+#var treeListe := []
+#var enemyListe := []
 
 var holz_count : int = 0 setget set_holz
 var holz_amount : int = 10
