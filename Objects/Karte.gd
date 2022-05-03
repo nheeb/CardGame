@@ -61,7 +61,11 @@ func play_effect(): # Override
 func on_ground_hover(position: Vector3): # Override
 	pass
 
+func on_return_to_hand(): # Override
+	pass
+
 func return_to_hand():
+	on_return_to_hand()
 	GameInfo.main_cam.generate_pivots()
 
 func change_type(_card_name: String):

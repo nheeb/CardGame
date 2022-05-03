@@ -30,4 +30,7 @@ func on_ground_hover(position: Vector3):
 			hover_rock.set_build_state("none")
 			hover_rock = null
 
-
+func on_return_to_hand():
+	if hover_rock != null:
+		hover_rock.set_build_state("none")
+		hover_rock = null
