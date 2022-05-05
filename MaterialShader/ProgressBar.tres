@@ -8,7 +8,7 @@ uniform vec4 albedo_bg : hint_color;
 uniform float progress: hint_range(0.0, 1.0);
 
 void vertex() {
-	MODELVIEW_MATRIX = INV_CAMERA_MATRIX * mat4(CAMERA_MATRIX[0],CAMERA_MATRIX[1],CAMERA_MATRIX[2],WORLD_MATRIX[3]);
+	MODELVIEW_MATRIX = INV_CAMERA_MATRIX * mat4(.5*CAMERA_MATRIX[0],.5*CAMERA_MATRIX[1],CAMERA_MATRIX[2],WORLD_MATRIX[3]);
 }
 
 void fragment() {

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Units/Fighter.gd" type="Script" id=1]
 [ext_resource path="res://Utility/AddToList.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Effects/ProgressBar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -59,6 +60,10 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, -57.41 ) ]
 }
 
+[sub_resource type="CapsuleShape" id=6]
+radius = 0.189106
+height = 0.564458
+
 [node name="Fighter" type="Spatial"]
 script = ExtResource( 1 )
 
@@ -78,3 +83,11 @@ anims/RESET = SubResource( 5 )
 
 [node name="AddToList" parent="." instance=ExtResource( 2 )]
 list_name = "units"
+
+[node name="ProgressBar" parent="." instance=ExtResource( 3 )]
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.557553, 2.43714e-08 )
+shape = SubResource( 6 )

@@ -5,8 +5,19 @@ var state : String = "idle"
 var v :float= 1
 var stop_radius :float= 0.5
 
-#func _ready():
-#	GameInfo.objectDictionary("units").append(self)
+func _ready():
+	$ProgressBar.set_color(Color.darkgreen)
+	hp_change(max_hp)
+
+var hp :int= 100
+var max_hp :int= 100
+
+func hp_change(new_hp):
+	hp = new_hp
+	if hp <= 0:
+		self.queue_free()
+		GameInfo.get_object_list("units").erase(self)
+	$ProgressBar.progress = hp/float(max_hp)
 
 func seek_enemy():
 	if GameInfo.get_object_list("enemies").empty(): 
