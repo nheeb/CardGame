@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Meshes/GoblinRope.material" type="Material" id=1]
 [ext_resource path="res://Meshes/GoblinCloth.material" type="Material" id=2]
@@ -136,6 +136,310 @@ bind/19/pose = Transform( -0.998152, 0.0607658, -0.000407022, -0.059887, -0.9848
 bind/20/name = "Foot.L"
 bind/20/bone = -1
 bind/20/pose = Transform( -0.998238, 0.0587768, 0.00810714, 6.62171e-07, -0.136637, 0.990622, 0.0593335, 0.988876, 0.136397, -1.01197, -0.0955473, -0.225509 )
+
+[sub_resource type="Animation" id=20]
+resource_name = "attack1"
+length = 0.1
+step = 0.05
+tracks/0/type = "transform"
+tracks/0/path = NodePath("GoblinModel/Armature/Skeleton:Foot.L")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 1.37836e-07, -5.96046e-08, -4.76837e-07, 0.0457444, 0.00684235, -0.00360295, 0.998923, 1, 1, 1 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("GoblinModel/Armature/Skeleton:LowerLeg.L")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, 1.19209e-07, 0, 1.19209e-07, -0.0931409, 1.05231e-09, -0.000317807, 0.995653, 1, 1, 0.999999 )
+tracks/2/type = "transform"
+tracks/2/path = NodePath("GoblinModel/Armature/Skeleton:UpperLeg.L")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = PoolRealArray( 0, 1, -1.19209e-07, 2.36556e-07, 0, -0.0888951, -0.000173313, -0.0230099, 0.995775, 1, 1, 1 )
+tracks/3/type = "transform"
+tracks/3/path = NodePath("GoblinModel/Armature/Skeleton:Head")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = PoolRealArray( 0, 1, 2.30968e-08, 3.57628e-07, -1.11759e-08, -0.0815737, 0.00944273, 0.029673, 0.996181, 1, 1, 1 )
+tracks/4/type = "transform"
+tracks/4/path = NodePath("GoblinModel/Armature/Skeleton:Neck")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = PoolRealArray( 0, 1, 0, 0, 3.35276e-08, -1.86265e-09, 0, 0, 1, 1, 1, 1 )
+tracks/5/type = "transform"
+tracks/5/path = NodePath("GoblinModel/Armature/Skeleton:Hand.L")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = PoolRealArray( 0, 1, -2.68221e-07, 5.96046e-07, -1.11759e-07, 0.022099, 0.799379, -0.162159, 0.578108, 1, 1, 1 )
+tracks/6/type = "transform"
+tracks/6/path = NodePath("GoblinModel/Armature/Skeleton:LowerArm.L")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = PoolRealArray( 0, 1, 4.60073e-07, 2.38419e-07, -9.40636e-08, -0.226579, 7.27126e-08, -0.313398, 0.922195, 1, 1, 1 )
+tracks/7/type = "transform"
+tracks/7/path = NodePath("GoblinModel/Armature/Skeleton:UpperArm.L")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = PoolRealArray( 0, 1, 8.9407e-08, -4.47035e-07, 1.19209e-07, -0.346156, 0.102501, 0.576788, 0.732793, 1, 1, 1 )
+tracks/8/type = "transform"
+tracks/8/path = NodePath("GoblinModel/Armature/Skeleton:Shoulder.L")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = PoolRealArray( 0, 1, -2.98023e-07, 0, 7.45058e-08, 3.72529e-09, -1.67638e-08, 2.70084e-08, 1, 1, 1, 1 )
+tracks/9/type = "transform"
+tracks/9/path = NodePath("GoblinModel/Armature/Skeleton:Hand.R")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = PoolRealArray( 0, 1, -5.96046e-08, 1.19209e-07, 8.9407e-08, -0.0449587, -0.394502, -0.00246298, 0.917791, 1, 1, 1 )
+tracks/10/type = "transform"
+tracks/10/path = NodePath("GoblinModel/Armature/Skeleton:LowerArm.R")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = PoolRealArray( 0, 1, -2.91504e-07, 1.19209e-07, -9.82545e-08, -0.101616, 6.99784e-08, 0.140552, 0.984845, 1, 1, 1 )
+tracks/11/type = "transform"
+tracks/11/path = NodePath("GoblinModel/Armature/Skeleton:UpperArm.R")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = PoolRealArray( 0, 1, -1.19209e-07, -2.68221e-07, 0, -0.00320928, -0.00432865, -0.0516325, 0.998652, 1, 1, 1 )
+tracks/12/type = "transform"
+tracks/12/path = NodePath("GoblinModel/Armature/Skeleton:Shoulder.R")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = PoolRealArray( 0, 1, -1.19209e-07, -1.19209e-07, 5.96046e-08, 2.79397e-09, 1.86264e-09, -2.67464e-08, 1, 1, 1, 1 )
+tracks/13/type = "transform"
+tracks/13/path = NodePath("GoblinModel/Armature/Skeleton:Chest")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = PoolRealArray( 0, 1, -1.63913e-08, 0, 8.9407e-08, 0.0717057, -0.010263, -0.0253756, 0.99705, 1, 1, 1 )
+tracks/14/type = "transform"
+tracks/14/path = NodePath("GoblinModel/Armature/Skeleton:Waist")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = PoolRealArray( 0, 1, 7.45058e-09, 0, 2.98023e-08, 3.72529e-09, 2.32831e-10, -9.31322e-10, 1, 1, 1, 1 )
+tracks/15/type = "transform"
+tracks/15/path = NodePath("GoblinModel/Armature/Skeleton:Foot.R")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = PoolRealArray( 0, 1, -1.28523e-07, 6.70552e-08, 0, 0.00579592, -0.000218767, -0.00476056, 0.999972, 1, 1, 1 )
+tracks/16/type = "transform"
+tracks/16/path = NodePath("GoblinModel/Armature/Skeleton:LowerLeg.R")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = PoolRealArray( 0, 1, -1.90688e-07, -3.57628e-07, 5.96046e-08, -0.0123243, 2.01707e-09, 4.20459e-05, 0.999924, 1, 1, 1 )
+tracks/17/type = "transform"
+tracks/17/path = NodePath("GoblinModel/Armature/Skeleton:UpperLeg.R")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = PoolRealArray( 0, 1, 5.96046e-08, 1.17347e-07, -4.47035e-08, -0.00552175, 0.00813196, -0.0297756, 0.999508, 1, 1, 1 )
+tracks/18/type = "transform"
+tracks/18/path = NodePath("GoblinModel/Armature/Skeleton:Hip")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = PoolRealArray( 0, 1, 0, 0, 0, -0.0717057, 0.0112122, 0.0249707, 0.99705, 1, 1, 1 )
+tracks/19/type = "transform"
+tracks/19/path = NodePath("GoblinModel/Armature/Skeleton:HipControl")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = PoolRealArray( 0, 1, -0.026086, 0.111917, -0.0206475, 0, 0, 0, 1, 1, 1, 1 )
+tracks/20/type = "transform"
+tracks/20/path = NodePath("GoblinModel/Armature/Skeleton:Control")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[sub_resource type="Animation" id=21]
+resource_name = "attack2"
+length = 0.1
+step = 0.05
+tracks/0/type = "transform"
+tracks/0/path = NodePath("GoblinModel/Armature/Skeleton:Foot.L")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 6.70552e-08, -1.78814e-07, 0, -0.00949949, 0.00161992, 0.00221014, 0.999951, 1, 1, 1 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("GoblinModel/Armature/Skeleton:LowerLeg.L")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, 2.32831e-10, 2.38419e-07, 1.78814e-07, 0.027403, -2.07397e-09, 9.34968e-05, 0.999624, 0.999999, 1, 1 )
+tracks/2/type = "transform"
+tracks/2/path = NodePath("GoblinModel/Armature/Skeleton:UpperLeg.L")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = PoolRealArray( 0, 1, 0, -1.21072e-07, 3.72529e-08, 0.110131, 0.00445691, 0.00910915, 0.993865, 1, 1, 1 )
+tracks/3/type = "transform"
+tracks/3/path = NodePath("GoblinModel/Armature/Skeleton:Head")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = PoolRealArray( 0, 1, 1.49012e-08, 0, -7.45058e-08, -0.131029, 0.00535455, 0.0182097, 0.991197, 1, 1, 1 )
+tracks/4/type = "transform"
+tracks/4/path = NodePath("GoblinModel/Armature/Skeleton:Neck")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = PoolRealArray( 0, 1, -5.58794e-09, 0, 2.23517e-08, 0.130691, -0.00608189, -0.0179283, 0.991242, 1, 1, 1 )
+tracks/5/type = "transform"
+tracks/5/path = NodePath("GoblinModel/Armature/Skeleton:Hand.L")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = PoolRealArray( 0, 1, -4.91738e-07, 4.76837e-07, 2.98023e-08, -0.164736, 0.954366, -0.100758, 0.227807, 1, 1, 1 )
+tracks/6/type = "transform"
+tracks/6/path = NodePath("GoblinModel/Armature/Skeleton:LowerArm.L")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = PoolRealArray( 0, 1, -1.02445e-08, -2.38419e-07, 6.65896e-08, -0.307165, 8.74941e-09, -0.424862, 0.851553, 1, 1, 1 )
+tracks/7/type = "transform"
+tracks/7/path = NodePath("GoblinModel/Armature/Skeleton:UpperArm.L")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = PoolRealArray( 0, 1, 4.47035e-08, 7.15256e-07, 2.38419e-07, -0.708043, -0.484906, 0.00495435, 0.513338, 1, 1, 1 )
+tracks/8/type = "transform"
+tracks/8/path = NodePath("GoblinModel/Armature/Skeleton:Shoulder.L")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = PoolRealArray( 0, 1, -2.98023e-07, 0, 7.45058e-08, 3.72529e-09, -1.67638e-08, 2.70084e-08, 1, 1, 1, 1 )
+tracks/9/type = "transform"
+tracks/9/path = NodePath("GoblinModel/Armature/Skeleton:Hand.R")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = PoolRealArray( 0, 1, 3.8743e-07, -1.19209e-07, 5.96046e-08, -0.109206, -0.371969, 0.205657, 0.898565, 1, 1, 1 )
+tracks/10/type = "transform"
+tracks/10/path = NodePath("GoblinModel/Armature/Skeleton:LowerArm.R")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = PoolRealArray( 0, 1, -3.63216e-07, 1.19209e-07, -3.25963e-09, -2.96801e-06, 8.03145e-08, 4.06876e-06, 1, 1, 1, 1 )
+tracks/11/type = "transform"
+tracks/11/path = NodePath("GoblinModel/Armature/Skeleton:UpperArm.R")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = PoolRealArray( 0, 1, -5.96046e-08, 0, -2.38419e-07, 0.0465403, 0.00718088, -0.0494423, 0.997666, 1, 1, 1 )
+tracks/12/type = "transform"
+tracks/12/path = NodePath("GoblinModel/Armature/Skeleton:Shoulder.R")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = PoolRealArray( 0, 1, -1.19209e-07, -1.19209e-07, 5.96046e-08, 2.79397e-09, 1.86264e-09, -2.67464e-08, 1, 1, 1, 1 )
+tracks/13/type = "transform"
+tracks/13/path = NodePath("GoblinModel/Armature/Skeleton:Chest")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = PoolRealArray( 0, 1, 8.84756e-09, 0, 3.72529e-08, 0.0302647, -0.00155354, -0.00409963, 0.999532, 1, 1, 1 )
+tracks/14/type = "transform"
+tracks/14/path = NodePath("GoblinModel/Armature/Skeleton:Waist")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = PoolRealArray( 0, 1, 7.45058e-09, 0, 2.98023e-08, 3.72529e-09, 2.32831e-10, -9.31322e-10, 1, 1, 1, 1 )
+tracks/15/type = "transform"
+tracks/15/path = NodePath("GoblinModel/Armature/Skeleton:Foot.R")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = PoolRealArray( 0, 1, -1.86265e-07, -1.11759e-07, -4.76837e-07, 0.0184346, 0.00133507, 0.00230236, 0.999827, 1, 1, 1 )
+tracks/16/type = "transform"
+tracks/16/path = NodePath("GoblinModel/Armature/Skeleton:LowerLeg.R")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = PoolRealArray( 0, 1, -1.19209e-07, 0, 1.78814e-07, -0.0348685, 1.24085e-09, 0.000118968, 0.999392, 1, 1, 1 )
+tracks/17/type = "transform"
+tracks/17/path = NodePath("GoblinModel/Armature/Skeleton:UpperLeg.R")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = PoolRealArray( 0, 1, 0, -1.22935e-07, 5.21541e-08, 0.142118, -0.0075679, 0.0222032, 0.989572, 1, 1, 1 )
+tracks/18/type = "transform"
+tracks/18/path = NodePath("GoblinModel/Armature/Skeleton:Hip")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = PoolRealArray( 0, 1, 0, 0, 0, 0.127218, -0.00717521, -0.0169744, 0.991704, 1, 1, 1 )
+tracks/19/type = "transform"
+tracks/19/path = NodePath("GoblinModel/Armature/Skeleton:HipControl")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = PoolRealArray( 0, 1, -0.0235197, 0.0220947, -0.0206475, 0, 0, 0, 1, 1, 1, 1 )
+tracks/20/type = "transform"
+tracks/20/path = NodePath("GoblinModel/Armature/Skeleton:Control")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "idle1"
@@ -505,7 +809,7 @@ tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/keys = PoolRealArray( 0.01, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/8/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 tracks/9/type = "transform"
 tracks/9/path = NodePath("GoblinModel/Armature/Skeleton:UpperArm.R")
 tracks/9/interp = 1
@@ -743,6 +1047,30 @@ tracks/20/imported = false
 tracks/20/enabled = true
 tracks/20/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "idle1"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "attack1"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "attack2"
+
+[sub_resource type="AnimationNodeAnimation" id=33]
+animation = "idle1"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=29]
+blend_point_0/node = SubResource( 30 )
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource( 31 )
+blend_point_1/pos = -0.2
+blend_point_2/node = SubResource( 32 )
+blend_point_2/pos = 0.2
+blend_point_3/node = SubResource( 33 )
+blend_point_3/pos = 1.0
+
+[sub_resource type="AnimationNodeBlend2" id=28]
+
 [sub_resource type="AnimationNodeBlend2" id=7]
 
 [sub_resource type="AnimationNodeAnimation" id=11]
@@ -794,14 +1122,18 @@ node_connections = [ "output", 0, "BlendSpace1D" ]
 
 [sub_resource type="AnimationNodeBlendTree" id=10]
 graph_offset = Vector2( 0, -118 )
+nodes/Attack/node = SubResource( 29 )
+nodes/Attack/position = Vector2( 560, 364 )
+nodes/BlendAttack/node = SubResource( 28 )
+nodes/BlendAttack/position = Vector2( 820, 180 )
 nodes/BlendWalk/node = SubResource( 7 )
-nodes/BlendWalk/position = Vector2( 560, 120 )
+nodes/BlendWalk/position = Vector2( 560, 100 )
 nodes/Idle/node = SubResource( 8 )
 nodes/Idle/position = Vector2( 240, 100 )
 nodes/Walk/node = SubResource( 9 )
 nodes/Walk/position = Vector2( 240, 220 )
-nodes/output/position = Vector2( 820, 140 )
-node_connections = [ "output", 0, "BlendWalk", "BlendWalk", 0, "Idle", "BlendWalk", 1, "Walk" ]
+nodes/output/position = Vector2( 1100, 80 )
+node_connections = [ "output", 0, "BlendAttack", "BlendWalk", 0, "Idle", "BlendWalk", 1, "Walk", "BlendAttack", 0, "BlendWalk", "BlendAttack", 1, "Attack" ]
 
 [sub_resource type="Animation" id=19]
 resource_name = "active"
@@ -826,6 +1158,34 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -1.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=34]
+resource_name = "attack"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationTree:parameters/BlendAttack/blend_amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationTree:parameters/Attack/blend_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ -1.0, 1.0 ]
@@ -953,8 +1313,10 @@ material/2 = null
 material/3 = null
 material/4 = null
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="KeyFramePlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
+anims/attack1 = SubResource( 20 )
+anims/attack2 = SubResource( 21 )
 anims/idle1 = SubResource( 3 )
 anims/idle2 = SubResource( 4 )
 anims/walk1 = SubResource( 5 )
@@ -962,14 +1324,23 @@ anims/walk2 = SubResource( 6 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 10 )
-anim_player = NodePath("../AnimationPlayer")
+anim_player = NodePath("../KeyFramePlayer")
 active = true
-parameters/BlendWalk/blend_amount = 1.0
-parameters/Idle/BlendSpace1D/blend_position = 0.986645
-parameters/Walk/BlendSpace1D/blend_position = 0.986645
+parameters/Attack/blend_position = -0.866667
+parameters/BlendAttack/blend_amount = 0.333333
+parameters/BlendWalk/blend_amount = 0.0
+parameters/Idle/BlendSpace1D/blend_position = -1.0
+parameters/Walk/BlendSpace1D/blend_position = -1.0
 
 [node name="TimePlayer" type="AnimationPlayer" parent="."]
 autoplay = "active"
 anims/active = SubResource( 19 )
 
 [node name="TransitionTween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+anims/ArmatureAction = SubResource( 21 )
+
+[node name="AttackPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 34 )
