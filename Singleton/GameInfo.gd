@@ -17,6 +17,11 @@ func _ready():
 	randomize()
 
 var objectDictionary := {}
+func get_object_list(liste) -> Array:
+	if not objectDictionary.has(liste):		
+		objectDictionary[liste] = []
+	return objectDictionary[liste]
+
 #objectDictionary["trees"] = [tree1 , tree2 ,tree3]
 #var treeListe := []
 #var enemyListe := []
@@ -34,3 +39,4 @@ var card_pool := ["Lumberjack", "Tree", "Fighter", "Mine"]
 
 func get_random_card_name_from_pool():
 	return card_pool[randi() % card_pool.size()]
+	

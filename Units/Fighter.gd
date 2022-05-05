@@ -6,15 +6,15 @@ var v :float= 1
 var stop_radius :float= 0.5
 
 #func _ready():
-#	GameInfo.unitListe.append(self)
+#	GameInfo.objectDictionary("units").append(self)
 
 func seek_enemy():
-	if GameInfo.objectDictionary["enemies"].empty(): 
+	if GameInfo.get_object_list("enemies").empty(): 
 		target = null
 		return
 	Functions.bezugsobjekt = self
-	GameInfo.objectDictionary["enemies"].sort_custom(Functions, "distance_compare")
-	target = GameInfo.objectDictionary["enemies"][0]
+	GameInfo.get_object_list("enemies").sort_custom(Functions, "distance_compare")
+	target = GameInfo.get_object_list("enemies")[0]
 
 func _physics_process(delta):
 	match(state):
@@ -52,6 +52,6 @@ func distance_to(obj):
 	return Functions.distance_to_object(obj)
 	
 func attack():
-	GameInfo.objectDictionary["enemies"].erase(target)
+	#GameInfo.get_object_list("enemies").erase(target)
 	if is_instance_valid(target):
-		target.queue_free()
+		target.hp_change(target.hp-20)

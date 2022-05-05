@@ -1,6 +1,6 @@
 extends Spatial
 
-const Enemy = preload("res://Units/FighterEnemy.tscn")
+const GOBLIN = preload("res://Units/Goblin.tscn")
 
 #func _physics_process(delta):
 #	var camera = $MainCam
@@ -14,7 +14,7 @@ func _ready():
 	GameInfo.main_cam = $MainCam
 
 func _on_Timer_timeout():
-	var new_enemy = Enemy.instance()
-	get_tree().current_scene.add_child(new_enemy)
-	new_enemy.translation = Vector3(3*randf(),0,3*randf())
-	#new_enemy.translation.y = 0
+	var new_goblin = GOBLIN.instance()
+	get_tree().current_scene.add_child(new_goblin)
+	new_goblin.translation = Vector3(3*randf(),0,3*randf())
+

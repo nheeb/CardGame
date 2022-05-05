@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Units/Fighter.gd" type="Script" id=1]
+[ext_resource path="res://Utility/AddToList.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -74,3 +75,6 @@ material/0 = SubResource( 3 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/AngriffFighter = SubResource( 4 )
 anims/RESET = SubResource( 5 )
+
+[node name="AddToList" parent="." instance=ExtResource( 2 )]
+list_name = "units"
