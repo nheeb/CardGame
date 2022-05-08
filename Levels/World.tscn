@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Objects/Tree.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Utility/MainCam.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/RockWithMine.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Utility/MouseDetectionLayer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Firepit.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0, 0.34902, 0.0862745, 1 )
@@ -78,17 +79,17 @@ wait_time = 5.0
 autostart = true
 
 [node name="RockWithMine" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.805049, 0, -0.593208, 0, 1, 0, 0.593208, 0, 0.805049, -4.09912, -0.077857, -1.94065 )
-
-[node name="RockWithMine2" parent="." instance=ExtResource( 5 )]
-transform = Transform( -0.32101, 0, -0.947076, 0, 1, 0, 0.947076, 0, -0.32101, 1.46773, -0.078877, -7.44489 )
+transform = Transform( 0.805049, 0, -0.593208, 0, 1, 0, 0.593208, 0, 0.805049, 1.03466, -0.077857, -6.22108 )
 
 [node name="RockWithMine3" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.781716, 0, 0.623634, 0, 1, 0, -0.623634, 0, 0.781716, 8.73628, -0.0788774, 0.0969515 )
+transform = Transform( 0.981942, 0, 0.189181, 0, 1, 0, -0.189181, 0, 0.981942, 9.24273, -0.0788774, -0.997398 )
 
 [node name="MouseDetectionLayer" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.247248, 0 )
 visible = false
 layer_name = "ground"
+
+[node name="Firepit" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.63768, 0, -2.41282 )
 
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_Timer_timeout"]
