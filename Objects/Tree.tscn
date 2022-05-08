@@ -31,5 +31,3 @@ material/0 = null
 
 [node name="AddToList" parent="." instance=ExtResource( 2 )]
 list_name = "trees"
-
-[connection signal="tree_exiting" from="." to="." method="_on_Tree_tree_exiting"]

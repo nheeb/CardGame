@@ -62,7 +62,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = SubResource( 1 )
-shader_param/time_scale = 0.9
+shader_param/time_scale = 0.8
 shader_param/noise_scale = 1.0
 shader_param/mask_tex = ExtResource( 2 )
 shader_param/noise = ExtResource( 1 )
@@ -191,7 +191,7 @@ script = ExtResource( 4 )
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )
 material_override = SubResource( 5 )
 amount = 30
-speed_scale = 0.5
+speed_scale = 0.4
 randomness = 0.6
 process_material = ExtResource( 3 )
 draw_pass_1 = SubResource( 4 )
