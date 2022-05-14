@@ -10,9 +10,19 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Spatial",
+"class": "HealthPoints",
+"language": "GDScript",
+"path": "res://Units/Utility/HealthPoints.gd"
+}, {
+"base": "Spatial",
 "class": "Karte",
 "language": "GDScript",
 "path": "res://Objects/Karte.gd"
+}, {
+"base": "Spatial",
+"class": "ListManager",
+"language": "GDScript",
+"path": "res://Units/Utility/ListManager.gd"
 }, {
 "base": "Camera",
 "class": "MainCam",
@@ -24,15 +34,23 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Utility/MouseDetectionLayer.gd"
 }, {
+"base": "Spatial",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://Units/Utility/StateMachine.gd"
+}, {
 "base": "Control",
 "class": "UI",
 "language": "GDScript",
 "path": "res://UI/UI.gd"
 } ]
 _global_script_class_icons={
+"HealthPoints": "",
 "Karte": "",
+"ListManager": "",
 "MainCam": "",
 "MouseDetectionLayer": "",
+"StateMachine": "",
 "UI": ""
 }
 

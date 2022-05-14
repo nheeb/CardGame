@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Models/MineModel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/RockWithMine.gd" type="Script" id=2]
-[ext_resource path="res://Utility/AddToList.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Units/Utility/ListManager.tscn" type="PackedScene" id=3]
 
 [node name="RockWithMine" type="Spatial"]
 script = ExtResource( 2 )
