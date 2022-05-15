@@ -73,7 +73,10 @@ export var damping := .02
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("create_new_card"):
-		draw_card()
+		if GameInfo.faith_count > 0:
+			GameInfo.set_faith(GameInfo.faith_count-GameInfo.faith_amount)
+
+			draw_card()
 	velocity += delta * acceleration * Vector3.RIGHT * (Input.get_action_strength("cam_move_right") - Input.get_action_strength("cam_move_left"))
 	velocity += delta * acceleration * Vector3.FORWARD * (Input.get_action_strength("cam_move_up") - Input.get_action_strength("cam_move_down"))
 	velocity *= pow(damping, delta)

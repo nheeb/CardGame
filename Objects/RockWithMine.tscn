@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Models/MineModel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/RockWithMine.gd" type="Script" id=2]
 [ext_resource path="res://Units/Utility/ListManager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Effects/RoundProgressBar.tscn" type="PackedScene" id=4]
 
 [node name="RockWithMine" type="Spatial"]
 script = ExtResource( 2 )
@@ -12,3 +13,8 @@ transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 1.19209e-07 )
 
 [node name="AddToList" parent="." instance=ExtResource( 3 )]
 list_name = "rocks"
+
+[node name="ProgressTween" type="Tween" parent="."]
+
+[node name="RoundProgressBar" parent="." instance=ExtResource( 4 )]
+transform = Transform( 3.25, 0, 0, 0, 3.25, 0, 0, 0, 3.25, 0, 0, -1.55373 )

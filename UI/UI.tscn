@@ -13,6 +13,16 @@ anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 2 )
 
+[node name="WoodLabel3" type="RichTextLabel" parent="."]
+margin_left = 752.0
+margin_top = 37.0
+margin_right = 1281.0
+margin_bottom = 206.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_text = "Faith: 0"
+text = "Faith: 0"
+
 [node name="WoodLabel" type="RichTextLabel" parent="."]
 margin_left = 24.0
 margin_top = 30.0
@@ -21,3 +31,12 @@ margin_bottom = 201.0
 mouse_filter = 1
 custom_fonts/normal_font = SubResource( 1 )
 text = "Wood: 0"
+
+[node name="WoodLabel2" type="RichTextLabel" parent="."]
+margin_left = 424.0
+margin_top = 30.0
+margin_right = 882.0
+margin_bottom = 201.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 1 )
+text = "Iron: 0"

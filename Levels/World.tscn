@@ -79,7 +79,7 @@ omni_range = 18.467
 transform = Transform( 0.805049, 0, -0.593208, 0, 1, 0, 0.593208, 0, 0.805049, 1.03466, 0.0298598, -6.22108 )
 
 [node name="RockWithMine3" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.981942, 0, 0.189181, 0, 1, 0, -0.189181, 0, 0.981942, 9.24273, 0.0168166, -0.997398 )
+transform = Transform( 0.981942, 0, 0.189181, 0, 1, 0, -0.189181, 0, 0.981942, 9.24273, 0.0456581, -0.997398 )
 
 [node name="MouseDetectionLayer" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.247248, 0 )
