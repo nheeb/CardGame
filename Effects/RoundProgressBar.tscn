@@ -12,6 +12,12 @@ func set_progress(x):
 	visible = progress != 0.0
 	if has_node(\"MeshInstance\"):
 		$MeshInstance.get(\"material/0\").set(\"shader_param/completeness\", progress)
+
+func set_color(c: Color) -> void:
+	$MeshInstance.get(\"material/0\").set(\"shader_param/albedo\", c)
+
+func set_border(b):
+	$MeshInstance.get(\"material/0\").set(\"shader_param/border\", b)
 "
 
 [sub_resource type="PlaneMesh" id=1]
@@ -20,7 +26,7 @@ func set_progress(x):
 resource_local_to_scene = true
 shader = ExtResource( 1 )
 shader_param/albedo = Color( 0.968627, 1, 0, 1 )
-shader_param/border = 0.073
+shader_param/border = 0.08
 shader_param/completeness = 0.262
 
 [node name="RoundProgressBar" type="Spatial"]
