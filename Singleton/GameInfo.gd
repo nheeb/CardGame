@@ -40,6 +40,10 @@ var faith_amount: int = 1
 var ui : UI
 var main_cam : MainCam
 
+var center_cube : MeshInstance
+var test_thing : MeshInstance
+var test_thing_2 : MeshInstance
+
 func set_holz(number):
 	holz_count = number 
 	ui.set_wood_label(holz_count)

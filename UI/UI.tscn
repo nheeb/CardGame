@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UI/Fonts/KGHAPPY.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/UI.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/skull.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -13,30 +14,67 @@ anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 2 )
 
-[node name="WoodLabel3" type="RichTextLabel" parent="."]
-margin_left = 752.0
-margin_top = 37.0
-margin_right = 1281.0
-margin_bottom = 206.0
+[node name="WoodLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.012
+anchor_top = 0.028
+anchor_right = 0.206
+anchor_bottom = 0.127
+margin_left = 0.959999
+margin_top = -0.240002
+margin_right = -0.52002
+margin_bottom = -0.160004
 mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 1 )
+text = "Wood: 0"
+
+[node name="IronLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.221
+anchor_top = 0.028
+anchor_right = 0.383
+anchor_bottom = 0.13
+margin_left = -0.320038
+margin_top = -0.240002
+margin_right = -0.360046
+margin_bottom = -0.400009
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 1 )
+text = "Iron: 0"
+
+[node name="FaithLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.392
+anchor_top = 0.031
+anchor_right = 0.591
+anchor_bottom = 0.126
+margin_left = -0.640015
+margin_top = -0.480003
+margin_right = 0.279907
+margin_bottom = -0.0800018
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_text = "Faith: 0"
 text = "Faith: 0"
 
-[node name="WoodLabel" type="RichTextLabel" parent="."]
-margin_left = 24.0
-margin_top = 30.0
-margin_right = 482.0
-margin_bottom = 201.0
-mouse_filter = 1
-custom_fonts/normal_font = SubResource( 1 )
-text = "Wood: 0"
+[node name="NotifyBorder" type="ColorRect" parent="."]
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+margin_left = 0.519989
+margin_top = -0.440018
+margin_right = -0.400146
+margin_bottom = -0.0400391
+size_flags_horizontal = 15
+size_flags_vertical = 15
 
-[node name="WoodLabel2" type="RichTextLabel" parent="."]
-margin_left = 424.0
-margin_top = 30.0
-margin_right = 882.0
-margin_bottom = 201.0
-mouse_filter = 1
-custom_fonts/normal_font = SubResource( 1 )
-text = "Iron: 0"
+[node name="Skull" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Arrow" type="Sprite" parent="Skull"]
+texture = ExtResource( 3 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Objects/Tree.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Utility/MainCam.tscn" type="PackedScene" id=2]
@@ -18,13 +18,23 @@ material = SubResource( 1 )
 [sub_resource type="ConvexPolygonShape" id=3]
 points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
 
+[sub_resource type="CubeMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="SphereMesh" id=6]
+material = SubResource( 5 )
+radius = 0.25
+height = 0.5
+
 [node name="World" type="Spatial"]
 script = ExtResource( 3 )
 
 [node name="UI" parent="." instance=ExtResource( 4 )]
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 12.9213, 0, 0, 0, 0.0884558, 0, 0, 0, 12.9213, 0.153932, -0.0705285, 0.015588 )
+transform = Transform( 36.5795, 0, 0, 0, 0.0884558, 0, 0, 0, 36.5795, 0.153932, -0.0705285, 0.015588 )
 mesh = SubResource( 2 )
 skeleton = NodePath("")
 material/0 = null
@@ -90,6 +100,24 @@ layer_name = "ground"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.63768, 0, -2.41282 )
 
 [node name="UnitSpawner" parent="." instance=ExtResource( 8 )]
-transform = Transform( 2.73615, 0, 0, 0, 1, 0, 0, 0, 1.22185, -7.66763, -4.76837e-07, -9.1337 )
-spawn_time = 7.0
+transform = Transform( 2.73615, 0, 0, 0, 1, 0, 0, 0, 1.22185, -22.9749, -4.76837e-07, -26.5595 )
+spawn_time = 18.0
 preview_visible = false
+
+[node name="UnitSpawner2" parent="." instance=ExtResource( 8 )]
+transform = Transform( 2.73615, 0, 0, 0, 1, 0, 0, 0, 1.22185, 27.6455, -4.76837e-07, -26.5595 )
+spawn_time = 12.0
+preview_visible = false
+
+[node name="CenterCube" type="MeshInstance" parent="."]
+transform = Transform( 0.192381, 0, 0, 0, 0.192381, 0, 0, 0, 0.192381, 0, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="TestThing" type="MeshInstance" parent="."]
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="TestThing2" type="MeshInstance" parent="."]
+mesh = SubResource( 6 )
+material/0 = null

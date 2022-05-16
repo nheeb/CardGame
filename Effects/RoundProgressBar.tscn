@@ -16,7 +16,7 @@ func set_progress(x):
 func set_color(c: Color) -> void:
 	$MeshInstance.get(\"material/0\").set(\"shader_param/albedo\", c)
 
-func set_border(b):
+func set_border(b: float) -> void:
 	$MeshInstance.get(\"material/0\").set(\"shader_param/border\", b)
 "
 
