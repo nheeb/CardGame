@@ -102,6 +102,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.63768, 0, -2.41282 )
 [node name="UnitSpawner" parent="." instance=ExtResource( 8 )]
 transform = Transform( 2.73615, 0, 0, 0, 1, 0, 0, 0, 1.22185, -22.9749, -4.76837e-07, -26.5595 )
 spawn_time = 18.0
+spawn_on_ready = true
 preview_visible = false
 
 [node name="UnitSpawner2" parent="." instance=ExtResource( 8 )]
@@ -111,13 +112,16 @@ preview_visible = false
 
 [node name="CenterCube" type="MeshInstance" parent="."]
 transform = Transform( 0.192381, 0, 0, 0, 0.192381, 0, 0, 0, 0.192381, 0, 0, 0 )
+visible = false
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="TestThing" type="MeshInstance" parent="."]
+visible = false
 mesh = SubResource( 6 )
 material/0 = null
 
 [node name="TestThing2" type="MeshInstance" parent="."]
+visible = false
 mesh = SubResource( 6 )
 material/0 = null

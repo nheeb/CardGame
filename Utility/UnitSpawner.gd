@@ -9,6 +9,7 @@ var z_range := 1.0
 export var spawn_time := 10.0
 export var spawn_on_ready := false
 export var preview_visible := true
+export var do_enemy_notify := true
 
 func _ready():
 	target_unit_resource = GOBLIN
@@ -18,7 +19,9 @@ func _ready():
 	
 	$Preview.visible = preview_visible
 	$Timer.wait_time = spawn_time
-	if spawn_on_ready: _on_Timer_timeout()
+	if spawn_on_ready: 
+		yield(get_tree(),"idle_frame")
+		_on_Timer_timeout()
 	$Timer.start()
 	
 
@@ -27,4 +30,5 @@ func _on_Timer_timeout():
 	get_tree().current_scene.add_child(new_unit)
 	var random_position_offsets := Vector3((1.0 - 2.0 * randf()) * x_range, 0.0, (1.0 - 2.0 * randf()) * z_range)
 	new_unit.global_transform.origin = self.global_transform.origin + random_position_offsets
+	if do_enemy_notify: GameInfo.ui.notify_about_enemy(new_unit)
 

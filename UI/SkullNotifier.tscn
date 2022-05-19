@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/skull.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/skull_arrow.png" type="Texture" id=2]
+[ext_resource path="res://UI/SkullNotifier.gd" type="Script" id=3]
+
+[node name="SkullNotifier" type="TextureRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Control" type="Node2D" parent="."]
+position = Vector2( 48, 48 )
+
+[node name="Arrow" type="Sprite" parent="Control"]
+texture = ExtResource( 2 )
+
+[node name="FadeOutTween" type="Tween" parent="."]
+
+[connection signal="tween_all_completed" from="FadeOutTween" to="." method="_on_FadeOutTween_tween_all_completed"]
