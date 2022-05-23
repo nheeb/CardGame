@@ -3,7 +3,7 @@ extends Spatial
 #var mouse_position : Vector3
 func is_mouse_on_hand():
 	#print(get_viewport().get_mouse_position())
-	return get_viewport().get_mouse_position()[1] > get_viewport().size.y * .69
+	return get_viewport().get_mouse_position()[1] > get_viewport().size.y * .65
 
 var mouse_layers := {}
 func get_mouse_layer(layer_name: String) -> MouseDetectionLayer:
@@ -16,9 +16,10 @@ func get_mouse_pos(layer_name: String) -> Vector3:
 func _ready():
 	randomize()
 	yield(get_tree(),"idle_frame")
-	set_holz(holz_count)
-	set_iron(iron_count)
-	set_faith(faith_count)
+	if is_instance_valid(ui):
+		set_holz(holz_count)
+		set_iron(iron_count)
+		set_faith(faith_count)
 
 var objectDictionary := {}
 func get_object_list(liste) -> Array:

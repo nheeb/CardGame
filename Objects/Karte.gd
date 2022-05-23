@@ -11,10 +11,10 @@ func _on_Area_input_event(camera, event, position, normal, shape_idx):
 		if event.pressed:
 			dragMode = true
 			GameInfo.main_cam.drag_card = self
-			GameInfo.main_cam.generate_pivots()
+			GameInfo.main_cam.generate_target_positions()
 
 var dragMode = false
-var hand_pivot := Transform()
+var hand_target_position := Vector3()
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -25,13 +25,14 @@ func _input(event):
 				play_action_input()
 
 func drag():
-	global_transform.origin = lerp(global_transform.origin, GameInfo.get_mouse_pos("hand" if GameInfo.is_mouse_on_hand() else "ground"), .25)
+	if GameInfo.is_mouse_on_hand():
+		global_transform.origin = lerp(global_transform.origin, GameInfo.get_mouse_pos("hand"), .25)
+		GameInfo.main_cam.drag_card_between_the_others(global_transform.origin)
+	else:
+		follow_hand_target_position()
 
-func follow_hand_pivot():
-	translation = lerp(translation, hand_pivot.origin, .15)
-	transform.basis.x = lerp(transform.basis.x, hand_pivot.basis.x, .15)
-	transform.basis.y = lerp(transform.basis.y, hand_pivot.basis.y, .15)
-	transform.basis.z = lerp(transform.basis.z, hand_pivot.basis.z, .15)
+func follow_hand_target_position():
+	translation = lerp(translation, hand_target_position, .1)
 
 func _physics_process(delta):
 	if dragMode:
@@ -39,7 +40,7 @@ func _physics_process(delta):
 		if not GameInfo.is_mouse_on_hand():
 			on_ground_hover(GameInfo.get_mouse_pos("ground"))
 	else:
-		follow_hand_pivot()
+		follow_hand_target_position()
 
 func play_action_input():
 	if GameInfo.is_mouse_on_hand():
@@ -66,7 +67,8 @@ func on_return_to_hand(): # Override
 
 func return_to_hand():
 	on_return_to_hand()
-	GameInfo.main_cam.generate_pivots()
+	GameInfo.main_cam.return_to_hand(self)
+	#GameInfo.main_cam.generate_target_positions()
 
 func change_type(_card_name: String):
 	$KartModel.card_name = _card_name
@@ -106,10 +108,10 @@ func set_script_by_name(name: String) -> void:
 
 func _on_Area_mouse_entered():
 	GameInfo.main_cam.hover_card = self
-	GameInfo.main_cam.generate_pivots()
+	GameInfo.main_cam.generate_target_positions()
 
 
 func _on_Area_mouse_exited():
 	if GameInfo.main_cam.hover_card == self:
 		GameInfo.main_cam.hover_card = null
-		GameInfo.main_cam.generate_pivots()
+		GameInfo.main_cam.generate_target_positions()

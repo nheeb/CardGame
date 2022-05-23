@@ -4,7 +4,6 @@ export(String, "none", "build", "hover") var build_state := "none" setget set_bu
 
 const HOVER_MAT = preload("res://MaterialShader/HoverMaterial.tres")
 
-var is_ready := false
 var all_mesh_instances := []
 
 func add_to_all_mesh_instances(c):
@@ -15,13 +14,9 @@ func add_to_all_mesh_instances(c):
 			add_to_all_mesh_instances(cc)
 
 func _ready():
-	is_ready = true
 	add_to_all_mesh_instances(self)
 
 func set_build_state(x):
-	if !is_ready:
-		print("Mine Model yield ready")
-		yield(self,"ready")
 	build_state = x
 	match(build_state):
 		"none":
