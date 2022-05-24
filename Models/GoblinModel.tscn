@@ -1133,7 +1133,7 @@ nodes/Idle/position = Vector2( 240, 100 )
 nodes/Walk/node = SubResource( 9 )
 nodes/Walk/position = Vector2( 240, 220 )
 nodes/output/position = Vector2( 1100, 80 )
-node_connections = [ "output", 0, "BlendAttack", "BlendWalk", 0, "Idle", "BlendWalk", 1, "Walk", "BlendAttack", 0, "BlendWalk", "BlendAttack", 1, "Attack" ]
+node_connections = [ "output", 0, "BlendAttack", "BlendAttack", 0, "BlendWalk", "BlendAttack", 1, "Attack", "BlendWalk", 0, "Idle", "BlendWalk", 1, "Walk" ]
 
 [sub_resource type="Animation" id=19]
 resource_name = "active"

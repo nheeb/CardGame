@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Objects/Tree.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Utility/MainCam.tscn" type="PackedScene" id=2]
@@ -8,6 +8,18 @@
 [ext_resource path="res://Utility/MouseDetectionLayer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Firepit.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Utility/UnitSpawner.tscn" type="PackedScene" id=8]
+[ext_resource path="res://default_env.tres" type="Environment" id=9]
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0.058309, 0 ), 0.0, 16.3669, 0, 0, Vector2( 0.140845, 0.990909 ), 0.0686653, 0.0, 0, 0, Vector2( 0.346479, 0.990909 ), -0.0787139, -0.0787139, 0, 0, Vector2( 0.470423, 0 ), -25.8181, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0.553936, 0 ), 0.0, 13.6538, 0, 0, Vector2( 0.622535, 0.954545 ), 0.0658631, 0.0658631, 0, 0, Vector2( 0.749296, 0.972727 ), 0.0, 0.0, 0, 0, Vector2( 0.943662, 0 ), -5.91667, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=9]
+min_value = 0.2
+max_value = 1.2
+_data = [ Vector2( 0.0204082, 0.2 ), 0.0, 0.0, 0, 0, Vector2( 0.084507, 0.990909 ), 1.65501, 1.65501, 0, 0, Vector2( 0.250704, 1.10909 ), 0.0, 0.0, 0, 0, Vector2( 0.433803, 0.990909 ), -1.01219, -1.01219, 0, 0, Vector2( 0.571831, 0.2 ), -1.63062, 0.0, 0, 1, Vector2( 1, 0.2 ), 0.0, 2.72525, 1, 0 ]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0, 0.34902, 0.0862745, 1 )
@@ -30,6 +42,10 @@ height = 0.5
 
 [node name="World" type="Spatial"]
 script = ExtResource( 3 )
+sun_energy_curve = SubResource( 7 )
+moon_energy = 0.3
+moon_energy_curve = SubResource( 8 )
+background_energy_curve = SubResource( 9 )
 
 [node name="UI" parent="." instance=ExtResource( 4 )]
 
@@ -45,18 +61,6 @@ material/0 = null
 shape = SubResource( 3 )
 
 [node name="MainCam" parent="." instance=ExtResource( 2 )]
-
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.81854, -0.0749114, 0.569544, -0.553695, -0.366981, 0.747493, 0.153016, -0.927207, -0.341867, 5.15402, 6.77721, -5.78642 )
-light_color = Color( 0.9, 0.89625, 0.675, 1 )
-light_energy = 2.655
-shadow_enabled = true
-shadow_bias = 0.064
-directional_shadow_split_3 = 0.293
-directional_shadow_blend_splits = true
-directional_shadow_normal_bias = 0.0
-directional_shadow_bias_split_scale = 0.0
-directional_shadow_max_distance = 151.3
 
 [node name="Tree" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.46386, -0.161242, 4.65456 )
@@ -125,3 +129,33 @@ material/0 = null
 visible = false
 mesh = SubResource( 6 )
 material/0 = null
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 9 )
+
+[node name="Lights" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74724, 7.41065, 0 )
+
+[node name="Sun" type="DirectionalLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, -0.34202, 0.939693, 0, -0.939693, -0.34202, 0, 0, 0 )
+light_color = Color( 0.9, 0.89625, 0.675, 1 )
+light_energy = 2.655
+shadow_enabled = true
+shadow_bias = 0.064
+directional_shadow_split_3 = 0.293
+directional_shadow_blend_splits = true
+directional_shadow_normal_bias = 0.0
+directional_shadow_bias_split_scale = 0.0
+directional_shadow_max_distance = 151.3
+
+[node name="Moon" type="DirectionalLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, -0.34202, -0.939693, 0, 0.939693, -0.34202, 0, 0, 0 )
+light_color = Color( 0.0823529, 0.635294, 0.964706, 1 )
+light_energy = 2.655
+shadow_enabled = true
+shadow_bias = 0.064
+directional_shadow_split_3 = 0.293
+directional_shadow_blend_splits = true
+directional_shadow_normal_bias = 0.0
+directional_shadow_bias_split_scale = 0.0
+directional_shadow_max_distance = 151.3
