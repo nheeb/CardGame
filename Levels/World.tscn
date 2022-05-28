@@ -22,7 +22,7 @@ max_value = 1.2
 _data = [ Vector2( 0.0204082, 0.2 ), 0.0, 0.0, 0, 0, Vector2( 0.084507, 0.990909 ), 1.65501, 1.65501, 0, 0, Vector2( 0.250704, 1.10909 ), 0.0, 0.0, 0, 0, Vector2( 0.433803, 0.990909 ), -1.01219, -1.01219, 0, 0, Vector2( 0.571831, 0.2 ), -1.63062, 0.0, 0, 1, Vector2( 1, 0.2 ), 0.0, 2.72525, 1, 0 ]
 
 [sub_resource type="SpatialMaterial" id=1]
-albedo_color = Color( 0, 0.34902, 0.0862745, 1 )
+albedo_color = Color( 0.150675, 0.41, 0.1271, 1 )
 
 [sub_resource type="CubeMesh" id=2]
 material = SubResource( 1 )
@@ -63,22 +63,22 @@ shape = SubResource( 3 )
 [node name="MainCam" parent="." instance=ExtResource( 2 )]
 
 [node name="Tree" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.46386, -0.161242, 4.65456 )
+transform = Transform( 0.808226, 0, 0.588872, 0, 1, 0, -0.588872, 0, 0.808226, -4.46386, -0.161242, 4.65456 )
 
 [node name="Tree2" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.59864, -0.135291, 3.2206 )
 
 [node name="Tree3" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.07815, -0.160284, 3.57739 )
+transform = Transform( 0.782532, 0, -0.62261, 0, 1, 0, 0.62261, 0, 0.782532, -3.07815, -0.160284, 3.57739 )
 
 [node name="Tree4" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.17891, -0.160284, 3.69184 )
 
 [node name="Tree5" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.17891, -0.160284, -6.93426 )
+transform = Transform( 0.469086, 0, 0.883152, 0, 1, 0, -0.883152, 0, 0.469086, 6.17891, -0.160284, -6.93426 )
 
 [node name="Tree6" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.17801, -0.160284, -5.62233 )
+transform = Transform( 0.548322, 0, -0.836267, 0, 1, 0, 0.836267, 0, 0.548322, 7.17801, -0.160284, -5.62233 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58534, 13.7124, -0.247301 )
