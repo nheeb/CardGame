@@ -24,6 +24,8 @@ func _input(event):
 				GameInfo.main_cam.drag_card = null
 				play_action_input()
 
+var drag_clip_position = null
+
 func drag():
 	if GameInfo.is_mouse_on_hand():
 		global_transform.origin = lerp(global_transform.origin, GameInfo.get_mouse_pos("hand"), .25)
@@ -32,7 +34,10 @@ func drag():
 		var ground_pos : Vector3 = GameInfo.get_mouse_pos("ground")
 		follow_hand_target_position()
 		on_ground_hover(ground_pos)
-		GameInfo.main_cam.draw_arrow(ground_pos)
+		if drag_clip_position != null:
+			GameInfo.main_cam.draw_arrow(drag_clip_position)
+		else:
+			GameInfo.main_cam.draw_arrow(ground_pos)
 
 func follow_hand_target_position():
 	translation = lerp(translation, hand_target_position, .1)

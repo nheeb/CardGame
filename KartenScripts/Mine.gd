@@ -29,6 +29,11 @@ func on_ground_hover(position: Vector3):
 		if hover_rock != null:
 			hover_rock.set_build_state("none")
 			hover_rock = null
+	
+	if hover_rock == null:
+		self.drag_clip_position = null
+	else:
+		self.drag_clip_position = hover_rock.global_transform.origin
 
 func on_return_to_hand():
 	if hover_rock != null:

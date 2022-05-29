@@ -5,9 +5,37 @@ export(int) var segment_count: int = 10
 export(int) var resolution: int = 6
 export(float) var width_start: float = .1
 export(float) var width_end: float = .1
+export(float) var build_up_duration := .75
+export(float) var alpha_factor := .7
+
+var mat: Material
+var mat_for_background: Material
+var alpha := 0.0
+
+func set_alpha(a):
+	alpha = a * alpha_factor
+	$CardBackground.visible = alpha != 0.0
+	$ImmediateGeometry.visible = alpha != 0.0
+	var color = mat.get("shader_param/albedo")
+	color.a = alpha
+	mat.set("shader_param/albedo", color)
+	mat_for_background.set("shader_param/albedo", color)
+
+func _ready():
+	mat = load("res://MaterialShader/CardPlayArrow.tres")
+	mat.set("shader_param/more_transparent", 0.0)
+	
+	mat_for_background = load("res://MaterialShader/CardPlayArrow.tres").duplicate(true)
+	mat_for_background.set("shader_param/more_transparent", 1.0)
+	$CardBackground.material_override = mat_for_background
+	
+	set_alpha(.0)
 
 func clear_arrow():
 	$ImmediateGeometry.clear()
+	$AlphaTween.stop_all()
+	$AlphaTween.remove_all()
+	set_alpha(0.0)
 
 func build_arrow_to_global_point(end_global: Vector3) -> void:
 	build_arrow(to_local(self.global_transform.origin), to_local(end_global))
@@ -58,7 +86,12 @@ func build_arrow(start: Vector3, end: Vector3) -> void:
 			$ImmediateGeometry.add_vertex(verts_a[right])
 
 	$ImmediateGeometry.end()
-	$ImmediateGeometry.material_override = $MeshInstance.get("material/0")
+	$ImmediateGeometry.material_override = mat
+	#$ImmediateGeometry.material_override.set("shader_param/more_transparent", 0.0)
+	
+	if alpha == 0.0:
+		$AlphaTween.interpolate_method(self, "set_alpha", 0.01, 1.0, build_up_duration, Tween.TRANS_QUAD, Tween.EASE_IN)
+		$AlphaTween.start()
 
 func get_directed_circle_points(origin: Vector3, direction: Vector3, res: int, wid: float) -> Array:
 	direction = direction.normalized()

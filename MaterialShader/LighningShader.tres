@@ -7,6 +7,7 @@ shader_type spatial;
 render_mode blend_mix,depth_draw_opaque,cull_disabled,diffuse_burley,specular_schlick_ggx;
 uniform vec4 albedo : hint_color;
 uniform sampler2D texture_albedo : hint_albedo;
+uniform float more_transparent;
 
 
 /* discontinuous pseudorandom uniformly distributed in [-0.5, +0.5]^3 */
@@ -84,7 +85,7 @@ void fragment()
 { 
 	vec2 _UV = UV * 2. -1.;
 	_UV.y *= .35;
-	_UV.x *= 1.6;
+	_UV.x *= 6.6 - 5.0 * more_transparent ;
 
 	vec2 p = vec2(_UV.x, _UV.y * 4.0);
 	vec3 p3 = vec3(p, TIME);    
@@ -92,21 +93,22 @@ void fragment()
 	float intensity = noise(vec3(p3 * 1.4));
 
 	//float t = clamp((_UV.x * -_UV.x * 0.16) + 0.15, 0., 1.);                         
-	float y = abs(intensity * .2 + _UV.y * .2);
+	float y = abs(intensity * .2 + _UV.y * .25);
 
 	float g = clamp(pow(y, 0.22),0.0,1.0);
 
 	vec3 col = albedo.rgb;
-	col = col * -g + col;                    
+	col = col * -g + col;
 	col = col * col;
 	col = col * col;
 	//col = col * col;
-             
+
 	ALBEDO.rgb = col;
 	//ALBEDO.rgb = vec3(1.0) * g;                   
 	ALPHA = clamp(length(ALBEDO.rbg) - 1.0, 0.0, 1.0) * albedo.a;
 	ALBEDO.rgb = albedo.rgb*3.0*ALPHA;
-	EMISSION = albedo.rgb*1.0*ALPHA;
+	ALPHA = ALPHA * more_transparent * .5 * clamp(pow(1.55-abs(_UV.x), 3.0), 0.0, 1.0) + ALPHA * (1.0 - more_transparent);
+	EMISSION = albedo.rgb*ALPHA*(1.0-more_transparent);
 }
 
 "

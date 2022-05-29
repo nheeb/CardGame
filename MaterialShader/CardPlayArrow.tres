@@ -5,3 +5,4 @@
 [resource]
 shader = ExtResource( 1 )
 shader_param/albedo = Color( 1.2, 1.2, 1.2, 1 )
+shader_param/more_transparent = 1.0

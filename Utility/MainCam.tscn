@@ -20,7 +20,7 @@ layer_name = "hand"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.326864, 1 )
 
 [node name="PlayPosition" type="Spatial" parent="Pivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.322297, 0.256794, -0.349386 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.322297, 0.256793, -0.349386 )
 
 [node name="CardPlayArrow" parent="Pivot/PlayPosition" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.160356, -0.242953, 7.15256e-07 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.261781, -0.305691, -0.0541618 )
