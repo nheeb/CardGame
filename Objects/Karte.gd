@@ -29,7 +29,10 @@ func drag():
 		global_transform.origin = lerp(global_transform.origin, GameInfo.get_mouse_pos("hand"), .25)
 		GameInfo.main_cam.drag_card_between_the_others(global_transform.origin)
 	else:
+		var ground_pos : Vector3 = GameInfo.get_mouse_pos("ground")
 		follow_hand_target_position()
+		on_ground_hover(ground_pos)
+		GameInfo.main_cam.draw_arrow(ground_pos)
 
 func follow_hand_target_position():
 	translation = lerp(translation, hand_target_position, .1)
@@ -37,12 +40,11 @@ func follow_hand_target_position():
 func _physics_process(delta):
 	if dragMode:
 		drag()
-		if not GameInfo.is_mouse_on_hand():
-			on_ground_hover(GameInfo.get_mouse_pos("ground"))
 	else:
 		follow_hand_target_position()
 
 func play_action_input():
+	GameInfo.main_cam.clear_arrow()
 	if GameInfo.is_mouse_on_hand():
 		return_to_hand()
 		return

@@ -7,8 +7,8 @@ func _ready():
 	GameInfo.test_thing_2 = $TestThing2
 	GameInfo.center_cube = $CenterCube
 
-var day_time := 0.2 # 0 - .5 = Day; .5 - 1 = Night
-var day_time_speed := 0.001
+var day_time := 0.15 # 0 - .5 = Day; .5 - 1 = Night
+var day_time_speed := 0.002
 
 export var sun_energy := 2.5
 export(Curve) var sun_energy_curve: Curve

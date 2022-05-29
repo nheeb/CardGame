@@ -20,6 +20,7 @@ var target_return_destination: int
 
 func generate_target_positions():
 	if drag_card != null:
+		clear_arrow()
 		if drag_card in cards:
 			target_return_destination = cards.find(drag_card)
 			cards.erase(drag_card)
@@ -69,6 +70,7 @@ func return_to_hand(card: Karte) -> void:
 	generate_target_positions()
 
 func drag_card_between_the_others(pos: Vector3) -> void:
+	clear_arrow()
 	var local_pos_x = $Pivot.to_local(pos).x
 	var x_positions := []
 	for c in cards:
@@ -91,7 +93,13 @@ func draw_card():
 func remove_from_hand(card):
 	cards.erase(card)
 	generate_target_positions()
-	
+
+func draw_arrow(pos: Vector3): 
+	$Pivot/PlayPosition/CardPlayArrow.build_arrow_to_global_point(pos)
+
+func clear_arrow():
+	$Pivot/PlayPosition/CardPlayArrow.clear_arrow()
+
 var velocity := Vector3.ZERO
 export var acceleration := 30.0
 export var damping := .02
