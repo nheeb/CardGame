@@ -12,3 +12,6 @@ func play_effect():
 
 func is_play_valid() -> bool:
 	return GameInfo.holz_count >= 10
+
+func burn_effect():
+	GameInfo.set_holz(GameInfo.holz_count + 10)

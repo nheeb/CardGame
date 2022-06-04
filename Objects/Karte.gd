@@ -34,12 +34,29 @@ func drag():
 		var ground_pos : Vector3 = GameInfo.get_mouse_pos("ground")
 		follow_hand_target_position()
 		on_ground_hover(ground_pos)
-		####
+		
+		
+		if drag_clip_position == null or fire_clip:
+			test_for_fire_pit(ground_pos)
+			
+		
 		if drag_clip_position != null:
 			GameInfo.main_cam.draw_arrow(drag_clip_position)
 		else:
 			GameInfo.main_cam.draw_arrow(ground_pos)
 
+var fire_clip : bool = false
+
+func test_for_fire_pit(ground_pos):
+	var fire_pit_pos = GameInfo.fire_pit.global_transform.origin
+	var distance = ground_pos.distance_to(fire_pit_pos)
+	if distance < 3:
+		drag_clip_position = fire_pit_pos
+		fire_clip = true
+	else:
+		drag_clip_position = null
+		fire_clip = false
+				
 func follow_hand_target_position():
 	translation = lerp(translation, hand_target_position, .1)
 
@@ -54,12 +71,28 @@ func play_action_input():
 	if GameInfo.is_mouse_on_hand():
 		return_to_hand()
 		return
-	if is_play_valid():
+		
+	if fire_clip:
 		GameInfo.main_cam.remove_from_hand(self)
-		play_effect()
-		queue_free()
+		burn()
+			
 	else:
-		return_to_hand()
+		if is_play_valid():
+			GameInfo.main_cam.remove_from_hand(self)
+			
+			play_effect()
+			queue_free()
+		else:
+			return_to_hand()
+
+func burn():
+	burn_effect()
+	GameInfo.fire_pit.burn_visual()
+	queue_free()
+	pass
+
+func burn_effect(): # Override
+	pass
 
 func is_play_valid() -> bool: # Override
 	return true
