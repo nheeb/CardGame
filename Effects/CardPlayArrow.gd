@@ -5,21 +5,35 @@ export(int) var segment_count: int = 10
 export(int) var resolution: int = 6
 export(float) var width_start: float = .1
 export(float) var width_end: float = .1
-export(float) var build_up_duration := .75
+export(float) var build_up_duration := .45
 export(float) var alpha_factor := .7
 
 var mat: Material
 var mat_for_background: Material
+
 var alpha := 0.0
 
 func set_alpha(a):
-	alpha = a * alpha_factor
+	alpha = a * alpha_factor# * color.a
 	$CardBackground.visible = alpha != 0.0
 	$ImmediateGeometry.visible = alpha != 0.0
 	var color = mat.get("shader_param/albedo")
 	color.a = alpha
 	mat.set("shader_param/albedo", color)
 	mat_for_background.set("shader_param/albedo", color)
+
+var color: Color
+
+func set_color(c):
+	color = c
+	var col_vec := Vector3(color.r, color.b, color.g)
+	var factor := 1.4 - col_vec.length() * .1
+	color.r *= factor
+	color.g *= factor
+	color.b *= factor
+	mat.set("shader_param/albedo", color)
+	mat_for_background.set("shader_param/albedo", color)
+
 
 func _ready():
 	mat = load("res://MaterialShader/CardPlayArrow.tres")
@@ -29,6 +43,7 @@ func _ready():
 	mat_for_background.set("shader_param/more_transparent", 1.0)
 	$CardBackground.material_override = mat_for_background
 	
+	set_color(Color(1.0, 1.0, 1.0))
 	set_alpha(.0)
 
 func clear_arrow():
@@ -36,6 +51,7 @@ func clear_arrow():
 	$AlphaTween.stop_all()
 	$AlphaTween.remove_all()
 	set_alpha(0.0)
+	set_color(Color.white)
 
 func build_arrow_to_global_point(end_global: Vector3) -> void:
 	build_arrow(to_local(self.global_transform.origin), to_local(end_global))

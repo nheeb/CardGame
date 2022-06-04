@@ -208,7 +208,7 @@ process_material = SubResource( 8 )
 draw_pass_1 = SubResource( 10 )
 
 [node name="Sparks" type="Particles" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.599944, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0210209, 0.591183, -0.0220013 )
 emitting = false
 amount = 48
 lifetime = 2.0

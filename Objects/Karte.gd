@@ -34,6 +34,7 @@ func drag():
 		var ground_pos : Vector3 = GameInfo.get_mouse_pos("ground")
 		follow_hand_target_position()
 		on_ground_hover(ground_pos)
+		####
 		if drag_clip_position != null:
 			GameInfo.main_cam.draw_arrow(drag_clip_position)
 		else:

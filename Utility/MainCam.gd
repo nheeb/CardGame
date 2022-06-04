@@ -100,6 +100,9 @@ func draw_arrow(pos: Vector3):
 func clear_arrow():
 	$Pivot/PlayPosition/CardPlayArrow.clear_arrow()
 
+func set_arrow_color(c: Color):
+	$Pivot/PlayPosition/CardPlayArrow.set_color(c)
+
 var velocity := Vector3.ZERO
 export var acceleration := 30.0
 export var damping := .02

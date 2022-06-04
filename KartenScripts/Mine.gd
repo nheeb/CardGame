@@ -32,8 +32,10 @@ func on_ground_hover(position: Vector3):
 	
 	if hover_rock == null:
 		self.drag_clip_position = null
+		GameInfo.main_cam.set_arrow_color(Color.white)
 	else:
 		self.drag_clip_position = hover_rock.global_transform.origin
+		GameInfo.main_cam.set_arrow_color(Color.green)
 
 func on_return_to_hand():
 	if hover_rock != null:
