@@ -61,7 +61,7 @@ func set_iron(number):
 func set_faith(number):
 	faith_count = number
 	ui.set_faith_label(faith_count)
-var card_pool := ["Lumberjack", "Tree", "Fighter", "Mine"]
+var card_pool := ["Lumberjack", "Tree", "Fighter", "Mine", "TrainingGround"]
 
 func get_random_card_name_from_pool():
 	return card_pool[randi() % card_pool.size()]

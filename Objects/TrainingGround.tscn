@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Models/TrainingGroundModel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/TrainingGround.gd" type="Script" id=2]
+[ext_resource path="res://Effects/RoundProgressBar.tscn" type="PackedScene" id=3]
+
+[node name="TrainingGround" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="TrainingGroundModel" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.628233, 0, 0, 0, 0.628233, 0, 0, 0, 0.628233, 0, 0, 0 )
+
+[node name="RoundProgressBar" parent="." instance=ExtResource( 3 )]
+transform = Transform( 3.87074, 0, 0, 0, 3.87074, 0, 0, 0, 3.87074, 0, 0.266962, 0 )
+
+[node name="ProgressTween" type="Tween" parent="."]
