@@ -7,3 +7,6 @@ func play_effect():
 	get_tree().current_scene.add_child(new_lj)
 	new_lj.translation = GameInfo.get_mouse_pos("ground")
 	new_lj.translation.y = 0
+
+func burn_effect():
+	GameInfo.set_holz(GameInfo.holz_count + 2)

@@ -8,6 +8,9 @@ func play_effect():
 	GameInfo.objectDictionary["rocks"].erase(hover_rock)
 	GameInfo.holz_count = GameInfo.holz_count - 25
 
+func burn_effect():
+	GameInfo.set_iron(GameInfo.iron_count + 5)
+
 func is_play_valid():
 	return (hover_rock != null) and (GameInfo.holz_count >= 25)
 

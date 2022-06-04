@@ -13,6 +13,8 @@ func get_mouse_pos(layer_name: String) -> Vector3:
 	return get_mouse_layer(layer_name).get_global_layer_mouse_position()
 
 
+
+
 func _ready():
 	randomize()
 	yield(get_tree(),"idle_frame")
@@ -40,10 +42,13 @@ var faith_amount: int = 1
 
 var ui : UI
 var main_cam : MainCam
+var fire_pit : Spatial
 
 var center_cube : MeshInstance
 var test_thing : MeshInstance
 var test_thing_2 : MeshInstance
+
+
 
 func set_holz(number):
 	holz_count = number 

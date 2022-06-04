@@ -13,3 +13,6 @@ func cycle():
 	GameInfo.set_faith(GameInfo.faith_amount+GameInfo.faith_count)
 	cycle()
 	
+func burn_visual():
+	$FireParticles/Sparks.restart()
+	$FireParticles/Sparks.emitting = true
