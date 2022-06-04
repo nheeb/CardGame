@@ -35,11 +35,9 @@ func drag():
 		follow_hand_target_position()
 		on_ground_hover(ground_pos)
 		
-		
 		if drag_clip_position == null or fire_clip:
 			test_for_fire_pit(ground_pos)
 			
-		
 		if drag_clip_position != null:
 			GameInfo.main_cam.draw_arrow(drag_clip_position)
 		else:
@@ -53,9 +51,11 @@ func test_for_fire_pit(ground_pos):
 	if distance < 3:
 		drag_clip_position = fire_pit_pos
 		fire_clip = true
+		GameInfo.main_cam.set_arrow_color(Color.orange)
 	else:
 		drag_clip_position = null
 		fire_clip = false
+		GameInfo.main_cam.set_arrow_color(Color.white)
 				
 func follow_hand_target_position():
 	translation = lerp(translation, hand_target_position, .1)
