@@ -59,20 +59,6 @@ func state_start(state):
 
 func attack():
 	if is_instance_valid(target):
-		$HitBox.set_deferred("monitoring", true)
-		#$HitBox.set_deferred("monitorable", true)
-		yield(get_tree().create_timer(.1),"timeout")
-		#$HitBox.set_deferred("monitorable", false)
-		$HitBox.set_deferred("monitoring", false)
-
-		
-		
-		
-		
-		
-		
-
-
-func _on_HitBox_area_entered(area):
-	var unit = area.get_parent()
-	HealthPoints.deal_damage_to(unit, 10)
+		for area in $HitBox.get_overlapping_areas():
+			var unit = area.get_parent()
+			HealthPoints.deal_damage_to(unit, 10)
