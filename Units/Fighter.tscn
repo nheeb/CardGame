@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Units/Fighter.gd" type="Script" id=1]
 [ext_resource path="res://Units/Utility/ListManager.tscn" type="PackedScene" id=2]
@@ -72,6 +72,9 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, -57.41 ) ]
 }
 
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.203026, 0.587818, 0.251165 )
+
 [node name="Fighter" type="Spatial"]
 script = ExtResource( 1 )
 
@@ -95,3 +98,11 @@ list_name = "units"
 [node name="StateMachine" parent="." instance=ExtResource( 3 )]
 
 [node name="HealthPoints" parent="." instance=ExtResource( 4 )]
+
+[node name="HurtBox" type="Area" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="HurtBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51262, 0 )
+shape = SubResource( 6 )

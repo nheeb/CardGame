@@ -31,4 +31,4 @@ func state_start(state):
 
 func attack():
 	if is_instance_valid(target):
-		HealthPoints.deal_damage_to(target, 20)
+		HealthPoints.deal_damage_to(target, 5)
