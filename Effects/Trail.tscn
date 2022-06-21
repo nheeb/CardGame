@@ -1,7 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Effects/Trail.gd" type="Script" id=1]
 
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+flags_disable_ambient_light = true
+params_cull_mode = 1
+params_depth_draw_mode = 1
+
 [node name="Trail" type="ImmediateGeometry"]
+cast_shadow = 0
 script = ExtResource( 1 )
-shape = 1.0
+material = SubResource( 1 )

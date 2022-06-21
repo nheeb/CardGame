@@ -17,10 +17,10 @@ func set_alpha(a):
 	alpha = a * alpha_factor# * color.a
 	$CardBackground.visible = alpha != 0.0
 	$ImmediateGeometry.visible = alpha != 0.0
-	var color = mat.get("shader_param/albedo")
-	color.a = alpha
-	mat.set("shader_param/albedo", color)
-	mat_for_background.set("shader_param/albedo", color)
+	var _color = mat.get("shader_param/albedo")
+	_color.a = alpha
+	mat.set("shader_param/albedo", _color)
+	mat_for_background.set("shader_param/albedo", _color)
 
 var color: Color
 

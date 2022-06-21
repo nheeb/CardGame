@@ -1,116 +1,87 @@
 extends ImmediateGeometry
 
-export(float) var length = 10.0
-export var max_radius = 0.5
-export(int) var density_lengthwise = 25
-export(int) var density_around = 5
-export(float, EASE) var shape
+export var segment_count := 10
+export var seg_max_dist := .2
+export var resolution := 5
+export(float, 0, 1) var spring_force := 3.0
+export var radius := .2
+export(float, EASE) var shape := 1.0
+export var material : Material
+export var render_min_dist := .08
 
-var points = []
-var segment_length = 1.0
+var aabb: AABB
+var seg_global_points := []
+var rendered_indexes := []
+
+#var last_global_pos : Vector3
+#var velocity_direction : Vector3
 
 func _ready():
-	if length <= 0:
-		length = 2
-	if density_around < 3:
-		density_around = 3
-	if density_lengthwise < 2:
-		density_lengthwise = 2
+	for i in range(segment_count):
+		seg_global_points.append(global_transform.origin)
+	material_override = material
+#	last_global_pos = global_transform.origin
+
+func _process(delta):
+#	if global_transform.origin != last_global_pos:
+#		velocity_direction = (global_transform.origin - last_global_pos).normalized()
+#		last_global_pos = global_transform.origin
+	update(delta)
+	render()
+
+func update(delta: float):
+	seg_global_points[0] = global_transform.origin
+	for i in range(1, segment_count):
+		var current_point : Vector3 = seg_global_points[i]
+		var last_point : Vector3 = seg_global_points[i-1]
+		var dist_to_last: float = current_point.distance_to(last_point)
+		current_point = current_point + delta * i * spring_force * dist_to_last * current_point.direction_to(last_point)
+		dist_to_last = current_point.distance_to(last_point)
+		if dist_to_last > seg_max_dist:
+			current_point = last_point + seg_max_dist * last_point.direction_to(current_point)
+		seg_global_points[i] = current_point
+	rendered_indexes = [0]
+	for i in range(1, segment_count-1):
+		if seg_global_points[i].distance_to(seg_global_points[rendered_indexes[-1]]) > render_min_dist:
+			rendered_indexes.append(i)
+	if rendered_indexes.size() != 1 or seg_global_points[0].distance_to(seg_global_points[segment_count-1]) > render_min_dist:
+		rendered_indexes.append(segment_count-1)
 	
-	segment_length = length / density_lengthwise
-	for i in range(density_lengthwise):
-		points.append(global_transform.origin)
 
+func render():
+	var rings := []
+	for i in rendered_indexes:
+		var local_position : Vector3 = seg_global_points[i] - global_transform.origin
+		var direction : Vector3
+		if i != segment_count-1:
+			direction = seg_global_points[i].direction_to(seg_global_points[i+1])
+		else:
+			direction = seg_global_points[i-1].direction_to(seg_global_points[i])
+		if direction.length() == 0:
+			direction = Vector3.LEFT
+		var current_radius := radius * ease(1.0 - (float(i) / (segment_count-1)), shape)
+		var v := Vector3.DOWN.cross(direction).cross(direction) * current_radius
+		var verts := []
+		for j in range(resolution):
+			var v_pos := local_position + v.rotated(direction, TAU * float(j) / resolution)
+			verts.append(v_pos)
+		rings.append(verts)
 
-func _process(_delta):
-	update_trail()
-	render_trail()
-
-
-func update_trail():
-	var ind = 0
-	var last_p = global_transform.origin
-	for p in points:
-		var dis = p.distance_to(last_p)
-		var seg_len = segment_length
-		if ind == 0:
-			seg_len = 0.05
-		if dis > seg_len:
-			p = last_p + (p - last_p) / dis * seg_len
-		last_p = p
-		points[ind] = p
-		ind += 1
-
-
-func render_trail():
 	clear()
 	begin(Mesh.PRIMITIVE_TRIANGLES)
-	#begin(Mesh.PRIMITIVE_LINE_STRIP)
-	var local_points = []
-	for p in points:
-		local_points.append(p - global_transform.origin)
-	var last_p = Vector3()
-	var verts = []
-	var ind = 0
-	var first_iteration = true
-	var last_first_vec = Vector3()
-	# Create vertex loops around points.
-	for p in local_points:
-		var new_last_points = []
-		var offset = last_p - p
-		if offset == Vector3():
-			continue
-		# Get vector pointing from this point to last point.
-		var y_vec = offset.normalized()
-		var x_vec = Vector3()
-		if first_iteration:
-			# Cross product with random vector to get a perpendicular vector.
-			x_vec = y_vec.cross(y_vec.rotated(Vector3.RIGHT, 0.3))
-		else:
-			# Keep each loop at the same rotation as the previous.
-			x_vec = y_vec.cross(last_first_vec).cross(y_vec).normalized()
-		var width = max_radius
-		if shape != 0:
-			width = (1 - ease((ind + 1.0) / density_lengthwise, shape)) * max_radius
-		var seg_verts = []
-		var f_iter = true
-		for i in range(density_around): # Set up row of verts for each level.
-			var new_vert = p + width * x_vec.rotated(y_vec, i * TAU / density_around).normalized()
-			if f_iter:
-				last_first_vec = new_vert - p
-				f_iter = false
-			seg_verts.append(new_vert)
-		verts.append(seg_verts)
-		last_p = p
-		ind += 1
-		first_iteration = false
-	
-	# Create tris.
-	for j in range(len(verts) - 1):
-		var cur = verts[j]
-		var nxt = verts[j + 1]
-		for i in range(density_around):
-			var nxt_i = (i + 1) % density_around
-			# Order added affects normal.
-			add_vertex(cur[i])
-			add_vertex(cur[nxt_i])
-			add_vertex(nxt[i])
-			add_vertex(cur[nxt_i])
-			add_vertex(nxt[nxt_i])
-			add_vertex(nxt[i])
-	
-	if verts.size() > 1:
-		# Cap off top.
-		for i in range(density_around):
-			var nxt = (i + 1) % density_around
-			add_vertex(verts[0][i])
-			add_vertex(Vector3())
-			add_vertex(verts[0][nxt])
-		
-		# Cap off bottom.
-		for i in range(density_around):
-			var nxt = (i + 1) % density_around
-			add_vertex(verts[verts.size() - 1][i])
-			add_vertex(verts[verts.size() - 1][nxt])
-			add_vertex(last_p)
+	for i in range(1, rings.size()):
+		var seg_verts_a = rings[i-1]
+		var seg_verts_b = rings[i]
+		for j in range(resolution):
+			var index_left := j
+			var index_right := (j+1)%resolution
+
+			add_vertex(seg_verts_a[index_left])
+			add_vertex(seg_verts_b[index_left])
+			add_vertex(seg_verts_b[index_right])
+
+			add_vertex(seg_verts_b[index_right])
+			add_vertex(seg_verts_a[index_right])
+			add_vertex(seg_verts_a[index_left])
+	#add_sphere(8, 8, radius)
 	end()
